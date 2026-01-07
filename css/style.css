@@ -22,9 +22,17 @@
   align-items: center;
 }
 
-.logo {
-  font-size: 1.5rem;
+.home-link {
+width: 60px;
+  height: 0px;
+  background-image: url("../img/bedstemor-logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  flex-shrink: 0;
 }
+
 
 .nav-icons span {
   margin-left: 1rem;
@@ -40,14 +48,38 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
-.banner-item {
-  background: #000;
-  color: var(--main-bg);
-  padding: 4rem 0;
+
+.banner-item1,
+.banner-item2,
+.banner-item3 {
+  color: var(--main-text-color2);
+  padding: 4rem 1rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.banner-item1 {
+  background-image: url(../img/mad-5.jpg);
 } 
+.banner-item2 {
+  background-image: url(../img/mad-4.jpg);
+}
+.banner-item3 {
+  background-image: url(../img/mad-6.jpg);
+}
+
+
+
 
 .banner-text h1 {
   font-size: 2.2rem;
@@ -58,3 +90,81 @@
   font-size: 1rem;
   line-height: 1.5;
 }
+
+
+
+
+
+
+
+
+
+.produkter {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.produkt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+
+.produkt1,
+.produkt2,
+.produkt3 {
+  height: 180px;
+  background-size: contain;   /* 👈 VIGTIG */
+  background-position: center;
+  background-repeat: no-repeat;
+ 
+}
+
+.produkt1 {
+  background: url(../img/mad-krukker.jpg);
+}
+
+.produkt2 {
+  background: url(../img/pølser-4.png);
+}
+
+.produkt3 {
+  background: url(../img/mad-6.jpg);
+}
+
+.cta {
+  margin-top: 1.5rem;
+  padding: 0.9rem 2.5rem;
+  background: var(--main-color1);
+  color: var(--main-text-color2);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.cta:hover {
+  background: #8f1f1c;
+}
+
+
+
+
+/*
+
+
+@media (max-width: 768px) {
+  .banner-grid,
+  .produkt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+}
+*/

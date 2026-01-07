@@ -11,7 +11,79 @@
     --main-text-color2: #FEFEFE;
     --main-color1: #A62723;
     --main-color2: #1A2270;
+  /* Fonte */
+  --font-firmanavn: "Bodoni Moda SC", serif;
+  --font-overskrift: "Inria Serif", serif;
+  --font-brødtekst: "DM Sans", sans-serif;
+  --font-kursiv: "Brioso Pro", serif;
+
+  /* Størrelser */
+  --h1-size: 45px;
+  --h2-size: 30px;
+  --h3-size: 24px;
+  --kursiv-size: 42px;
+  --p-size: 16px;
+    /* Line-height */
+  --h1-line: 40px;
+  --h2-line: 40px;
+  --h3-line: 40px;
+  --kursiv-line: 40px;
+  --p-line: 30px;
+
 }
+
+body {
+  font-family: var(--font-brødtekst);
+  font-size: var(--p-size);
+  line-height: var(--p-line);
+  color: var(--main-text-color);
+}
+
+/* Firmanavn */
+.nav-bar h1 {
+  font-family: var(--font-firmanavn);
+  font-size: 26px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* Overskrifter */
+h1 {
+  font-family: var(--font-overskrift);
+  font-size: var(--h1-size);
+  line-height: var(--h1-line);
+  font-weight: 700;
+}
+
+h2 {
+  font-family: var(--font-overskrift);
+  font-size: var(--h2-size);
+  line-height: var(--h2-line);
+  font-weight: 700;
+}
+
+h3 {
+  font-family: var(--font-overskrift);
+  font-size: var(--h3-size);
+  line-height: var(--h3-line);
+  font-weight: 700;
+}
+
+/* Kursiv overskrift */
+.kursiv-overskrift {
+  font-family: var(--font-kursiv);
+  font-size: var(--kursiv-size);
+  line-height: var(--kursiv-line);
+  font-style: italic;
+}
+
+/* Brødtekst */
+p {
+  font-family: var(--font-brødtekst);
+  font-size: var(--p-size);
+  line-height: var(--p-line);
+}
+
 
 .nav-bar {
   background: var(--main-color1);
@@ -24,7 +96,7 @@
 
 .home-link {
 width: 60px;
-  height: 0px;
+  height: 60px;
   background-image: url("../img/bedstemor-logo.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -39,9 +111,14 @@ width: 60px;
   cursor: pointer;
 }
 
+
+
+
+
 /* BANNER */
 .banner {
-  padding: 2rem 1rem;
+    position: relative;
+
 }
 
 .banner-grid {
@@ -50,35 +127,50 @@ width: 60px;
   text-align: center;
   margin-bottom: 1rem;
 }
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
 
+.banner-overlay h1 {
+  color: var(--main-text-color2);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+} 
 
 .banner-item1,
 .banner-item2,
 .banner-item3 {
   color: var(--main-text-color2);
-  padding: 4rem 1rem;
+  padding: 2rem 1rem 1.5rem; /* 👈 mere kontrol i bunden */
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 500;
-
+  text-transform: lowercase;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  min-height: 260px;
 }
 
 .banner-item1 {
   background-image: url(../img/mad-5.jpg);
 } 
 .banner-item2 {
-  background-image: url(../img/mad-4.jpg);
+  background-image: url(../img/bedste-sorthvid.jpg);
 }
 .banner-item3 {
   background-image: url(../img/mad-6.jpg);
 }
-
-
 
 
 .banner-text h1 {
@@ -95,12 +187,27 @@ width: 60px;
 
 
 
+.produkter-overskrift {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
 
+.produkter-overskrift img {
+  width: 36px;
+}
+
+.produkter-tekst {
+  margin-top: 0.5rem;
+  font-size: 14px;
+  opacity: 0.8;
+}
 
 
 
 .produkter {
-  padding: 2rem 1rem;
+  padding: 4rem 1rem;
   text-align: center;
 }
 
@@ -115,23 +222,24 @@ width: 60px;
 .produkt1,
 .produkt2,
 .produkt3 {
-  height: 180px;
-  background-size: contain;   /* 👈 VIGTIG */
+  min-height: 200px;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
- 
+  background-color: #fff;
+  object-fit: contain;
 }
 
 .produkt1 {
-  background: url(../img/mad-krukker.jpg);
+  background-image: url(../img/mad-krukker.jpg);
 }
 
 .produkt2 {
-  background: url(../img/pølser-4.png);
+  background-image: url(../img/pølser-4.png);
 }
 
 .produkt3 {
-  background: url(../img/mad-6.jpg);
+  background-image: url(../img/mad-6.jpg);
 }
 
 .cta {
@@ -152,19 +260,92 @@ width: 60px;
 }
 
 
+.vaerdier {
+padding: 4rem 1rem;
+  text-align: center;
+  background-image: url("../img/dame-læser.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;}
+
+
+.vaerdier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+
+.vaerdi img {
+  width: 50px;
+  margin-bottom: 0.5rem;
+}
+
+.vaerdi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px; /* 👈 giver luft */
+  padding: 1rem;
+  text-align: center;
+}
+
+
+.vaerdi p {
+  margin-top: 0.25rem;
+  font-size: 1rem;
+}
+
+
+.vaerdi:nth-child(1) img {
+  transform: translateY(16px);
+}
+
+.vaerdi:nth-child(2) img {
+  transform: translateY(0);
+}
+
+.vaerdi:nth-child(3) img {
+  transform: translateY(16px);
+}
 
 
 /*
 
 
 @media (max-width: 768px) {
-  .banner-grid,
+  .banner-grid {
+    grid-template-columns: 1fr;
+  }
+
   .produkt-grid {
     grid-template-columns: 1fr;
   }
 
+  .vaerdier-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .produkter-overskrift img {
+    width: 28px;
+  }
+
   h1 {
-    font-size: 1.4rem;
+    font-size: 32px;
+    line-height: 36px;
   }
 }
-*/
+
+
+
+@media (max-width: 768px) {
+  .vaerdier-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vaerdi img {
+    transform: translateY(0); 
+    
+    /*

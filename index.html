@@ -16,19 +16,47 @@ family=Bodoni+Moda+SC:wght@400
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<header class="header">
 
-<header>
-  <div class="nav-bar">
-    <a class="home-link" href="index.html"></a>
+  <div class="header-bar">
 
-    <h1>Farmors Food</h1>
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="img/bedstemor-logo.png" alt="Farmors Food logo">
+      <span>FARMORS FOOD</span>
+    </a>
 
-    <div class="nav-icons">
-      <span class="kurv">kurv</span>
-      <span class="menu">☰</span>
+    <!-- Ikoner -->
+    <div class="header-icons">
+      <button class="kurv-btn" aria-label="Indkøbskurv">
+        x
+      </button>
+
+      <button class="burger-btn" id="burgerBtn" aria-label="Menu">
+        ☰
+      </button>
     </div>
+
   </div>
+
 </header>
+
+<!-- Overlay -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- Slide-in menu -->
+<nav class="slide-menu" id="slideMenu">
+  <button class="menu-close" id="menuClose">✕</button>
+
+  <ul class="menu-links">
+    <li><a href="#">Forside</a></li>
+    <li><a href="#">Om os</a></li>
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#">Kontakt</a></li>
+  </ul>
+</nav>
+
 
 
 
@@ -40,7 +68,7 @@ family=Bodoni+Moda+SC:wght@400
      <h1 class="hero-title">EN GOD OVERSKRIFT</h1>
   </div> 
         <div class="banner-grid">
-            
+
             <div class="banner-item1 ">lokal</div>
             <div class="banner-item2">kvalitet</div>
             <div class="banner-item3">god smag</div>
@@ -85,18 +113,17 @@ family=Bodoni+Moda+SC:wght@400
       
         </div>
 
-        <div class="vaerdi">
-                
+        <div class="vaerdi">     
           <img src="img/ikon-salat-hvid.png" alt="">
           <p>Ingen tilsætningsstoffer</p>
         </div>
 
         <div class="vaerdi">
-                               <p>Lokale råvarer</p>
+            <p>Lokale råvarer</p>
           <img src="img/ikon-kniv1.png" alt="">
-  
         </div>
       </div>
+    
     </div>
   </div>
 
@@ -115,13 +142,242 @@ family=Bodoni+Moda+SC:wght@400
 </section>
 
 
+<section class="proces">
+
+  <div class="proces-container">
+
+    <div class="proces-item">
+      <span class="proces-nummer">1</span>
+      <h3 class="proces-titel">Friske råvarer</h3>
+      <p class="proces-tekst">
+        Produkter er lavet fra bunden med omtanke
+      </p>
+      <img src="img/ikon-hånder-bår.png" alt="Friske råvarer">
+    </div>
+
+    <div class="proces-item">
+      <span class="proces-nummer">2</span>
+      <h3 class="proces-titel">Pakket med omtanke</h3>
+      <p class="proces-tekst">
+        Dine varer vakuumpakkes, med levering i hele landet
+      </p>
+      <img src="img/ikon-pakke-tape.png" alt="Pakket med omtanke">
+    </div>
+
+    <div class="proces-item">
+      <span class="proces-nummer">3</span>
+      <h3 class="proces-titel">Frisk levering</h3>
+      <p class="proces-tekst">
+        Leveret direkte til døren, klar til brug
+      </p>
+      <img src="img/ikon-pakke-levering.png" alt="Frisk levering">
+    </div>
+
+    <div class="proces-item">
+      <span class="proces-nummer">4</span>
+      <h3 class="proces-titel">Velbekomme</h3>
+      <p class="proces-tekst">
+        Tænd grillen og nyd maden med familie og venner
+      </p>
+      <img src="img/ikon-gril-mennesker.png" alt="Velbekomme">
+    </div>
+
+  </div>
+
+</section>
 
 
+<section class="historie">
+
+  <div class="historie-header">
+    <img src="img/deko-venstre.png" alt="" class="historie-deko">
+    <h2 class="section-title">Historie &amp; mission</h2>
+    <img src="img/deko-hoejre.png" alt="" class="historie-deko">
+  </div>
+
+  <div class="historie-indhold">
+
+    <div class="historie-tekst">
+      <p class="p">
+        Det hele startede med Farmors hjemmelavede pølser i Shanghai.
+        Nu tilbyder vi i Danmark et bredt udvalg med smag og tradition.
+      </p>
+
+      <button class="cta">LÆS MERE</button>
+    </div>
+
+    <div class="historie-billede">
+      <img src="img/gammel.jpg" alt="Gammelt familiefoto">
+    </div>
+
+  </div>
+
+</section>
+
+<section class="events">
+
+  <div class="events-header">
+    <img src="img/ikon-blad-blå.png" alt="" class="events-deko venstre">
+    <h2 class="section-title">Events</h2>
+    <img src="img/ikon-pølse1.png" alt="" class="events-deko hoejre">
+  </div>
+
+  <div class="events-hovedbillede">
+    <img src="img/lars-event.png" alt="Events og catering">
+  </div>
+
+  <div class="events-tekst">
+    <p class="p">
+      Vi serverer pølser og tilbehør til fester og events – op til
+      <strong>120 personer</strong>.
+    </p>
+    <p class="p">
+      Lad os tage os af maden, så du kan nyde festen.
+    </p>
+  </div>
+
+  <div class="events-billeder">
+    <img src="img/mad-2.jpg" alt="Madforberedelse">
+    <img src="img/mad-3.jpg" alt="Servering">
+  </div>
+
+  <button class="cta">BOOK</button>
+
+</section>
+
+<section class="citater">
+
+  <div class="citat-slider-wrapper">
+    <div class="citat-slider-track">
+
+      <div class="citat">
+        <p class="citat-tekst">
+          “Lækre pølser, saftige og lækre – man smager straks kvalitet!
+          Lige til at smide på grillen.”
+        </p>
+        <p class="citat-navn">Claus Warming – Kolding</p>
+      </div>
+
+      <div class="citat">
+        <p class="citat-tekst">
+          “Oste/bacon-pølsen sammen med Farmors er mine favoritter.
+          Man kan smage kvalitet.”
+        </p>
+        <p class="citat-navn">Mikael Wolff – Frederikssund</p>
+      </div>
+
+      <div class="citat">
+        <p class="citat-tekst">
+          “Fantastisk smag og super service – kan varmt anbefales.”
+        </p>
+        <p class="citat-navn">Anne M. – Aarhus</p>
+      </div>
+
+      <div class="citat">
+        <p class="citat-tekst">
+          “Perfekt til grill og events – alle var begejstrede.”
+        </p>
+        <p class="citat-navn">Thomas L. – Odense</p>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+</div>
+</div>
+</section>
+</section>
 
 
 </main>
 <footer>
-    <p>© Farmors Food</p>
+  <footer class="footer">
+  <div class="footer-indhold">
+    <div class="footer-tekst">
+      <h2 class="footer-logo">FARMORS FOOD</h2>
+
+      <p>
+        Åbningstider for køb og afhentning af bestilte varer:</strong><br>
+        Tirsdag 13.00–16.00<br>
+        Torsdag 13.00–16.00<br>
+        Eller efter aftale
+      </p>
+
+      <p>
+       Kontakt:<br>
+        60 13 28 68<br>
+        farmor@farmorsfood.dk<br>
+        Klostergade 9A, 6000 Kolding, Denmark
+      </p>
+    </div>
+
+    <div class="footer-logo-billede">
+      <img src="img/bedstemor-logo.png" alt="Farmors Food logo">
+    </div>
+
+  </div>
+
+  <div class="footer-social">
+    <img src="img/ikon-face-hvid.png" alt="Facebook">
+    <img src="img/ikon-img-hvid.png" alt="Instagram">
+  </div>
+
+
+
+  <div class="footer-betaling">
+    <span>Betal med:</span>
+    <img src="img/betal-visa.png" alt="">
+    <img src="img/betal-mastercard.png" alt="">
+    <img src="img/betal-mobilepay.png" alt="">
+    <img src="img/betal-applepay.png" alt="">
+  </div>
+
 </footer>
+
+
+
+<script>
+  /* ===== Citat-slider ===== */
+  const track = document.querySelector(".citat-slider-track");
+  const citater = document.querySelectorAll(".citat");
+
+  const kortBredde = 420 + 24; // kortbredde + gap
+  let index = 0;
+
+  setInterval(() => {
+    index++;
+
+    if (index > citater.length - 2) {
+      index = 0;
+    }
+
+    track.style.transform = `translateX(-${index * kortBredde}px)`;
+  }, 4000);
+
+
+  /* ===== Burger menu ===== */
+  const burgerBtn = document.getElementById("burgerBtn");
+  const slideMenu = document.getElementById("slideMenu");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const menuClose = document.getElementById("menuClose");
+
+  burgerBtn.addEventListener("click", () => {
+    slideMenu.classList.add("active");
+    menuOverlay.classList.add("active");
+  });
+
+  menuClose.addEventListener("click", closeMenu);
+  menuOverlay.addEventListener("click", closeMenu);
+
+  function closeMenu() {
+    slideMenu.classList.remove("active");
+    menuOverlay.classList.remove("active");
+  }
+</script>
+
+
+
+
 </body>
 </html>

@@ -85,33 +85,160 @@ p {
 }
 
 
-.nav-bar {
-  background: var(--main-color1);
-  color: var(--main-text-color2);
-  padding: 1rem;
+
+
+/* =====================
+   HEADER
+===================== */
+
+.header {
+  background-color: var(--main-color1);
+  position: relative;
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: white;
+}
+
+.logo img {
+  width: 164px; /* 👈 større logo */
+  height: auto;
+}
+
+.logo span {
+  font-family: var(--font-firmanavn);
+  font-size: 22px;
+  letter-spacing: 0.05em;
+}
+
+/* Ikoner */
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-icons button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+/* ===== HEADER ===== */
+.header {
+  background-color: var(--main-color1);
+}
+
+.header-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 1.5rem;
 }
 
-.home-link {
-width: 60px;
-  height: 60px;
-  background-image: url("../img/bedstemor-logo.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: block;
-  flex-shrink: 0;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: white;
+  text-decoration: none;
 }
 
+.logo img {
+  width: 64px;
+}
 
-.nav-icons span {
-  margin-left: 1rem;
+.logo span {
+  font-family: var(--font-firmanavn);
+  font-size: 22px;
+}
+
+.header-icons button {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: white;
   cursor: pointer;
 }
 
+/* ===== OVERLAY ===== */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 90;
+}
 
+.menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===== SLIDE MENU ===== */
+.slide-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;
+  max-width: 320px;
+  height: 100vh;
+
+  background-image: url("../img/papir-gul.png");
+  background-size: 100% 100%;
+  padding: 3rem 2rem;
+
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+  z-index: 100;
+}
+
+.slide-menu.active {
+  transform: translateX(0);
+}
+
+.menu-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.menu-links li {
+  margin: 1.5rem 0;
+}
+
+.menu-links a {
+  font-family: var(--font-overskrift);
+  font-size: 22px;
+  color: var(--main-text-color);
+  text-decoration: none;
+}
 
 
 
@@ -268,7 +395,7 @@ width: 60px;
   position: relative;
   height: 420px; /* 👈 styrer hvor høj videoen er */
   overflow: hidden;
-  color: white;
+  color: var(--main-bg)
 }
 
 .vaerdier-video {
@@ -355,8 +482,285 @@ width: 60px;
 
 
 
+.proces {
+  padding: 4rem 1.5rem;
+}
+
+.proces-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 3rem;
+
+  background-image: url("../img/papir-gul.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%; /* 👈 STRÆKKER papiret */
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+}
 
 
+.proces-item {
+  text-align: left;
+  position: relative;
+}
+
+.proces-nummer {
+  display: block;
+  text-align: center;
+  font-family: var(--font-overskrift);
+  font-size: 32px;
+  color: var(--main-color2);
+  margin-bottom: 0.5rem;
+}
+
+
+.proces-titel {
+  font-family: var(--font-kursiv);
+  font-size: 30px;
+  font-style: italic;
+  color: var(--main-color2);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+
+.proces-tekst {
+  font-family: var(--font-brødtekst);
+  font-size: 15px;
+  line-height: 26px;
+  margin-bottom: 1rem;
+  max-width: 260px;
+}
+
+.proces-item img {
+  width: 140px;
+  margin-top: 1rem;
+}
+
+
+
+
+
+
+
+.historie {
+  padding: 5rem 1.5rem;
+  background-color: var(--main-bg);
+}
+
+/* Titel + dekoration */
+.historie-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.historie-deko {
+  width: 80px;
+}
+
+/* Indhold */
+.historie-indhold {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.historie-tekst {
+  text-align: left;
+}
+
+.historie-tekst .cta {
+  margin-top: 2rem;
+} 
+
+/* Billede */
+.historie-billede img {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+
+
+.events {
+  padding: 5rem 1.5rem;
+  background-color: var(--main-bg);
+  text-align: center;
+}
+
+/* Titel + dekoration */
+.events-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.events-deko {
+  width: 60px;
+}
+
+/* Hovedbillede med tape-look */
+.events-hovedbillede {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto 2.5rem;
+}
+
+.events-hovedbillede::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: -18px;
+  width: 90px;
+  height: 28px;
+  background-image: url("../img/tape.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotate(-12deg);
+}
+
+.events-hovedbillede img {
+  width: 100%;
+  display: block;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Tekst */
+.events-tekst {
+  max-width: 500px;
+  margin: 0 auto 3rem;
+}
+
+/* To billeder nederst */
+.events-billeder {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.events-billeder img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+
+.citater {
+  padding: 4rem 1.5rem;
+  background-color: var(--main-bg);
+}
+
+/* Viewport */
+.citat-slider-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Rækken der flyttes */
+.citat-slider-track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.6s ease;
+}
+
+/* Selve kortet */
+.citat {
+  flex: 0 0 420px; /* 👈 fast bredde */
+  background-color: var(--main-color1);
+  color: white;
+  padding: 2rem;
+  border-radius: 18px;
+}
+
+/* Tekst */
+.citat-tekst {
+  font-size: 16px;
+  line-height: 28px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.citat-navn {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+
+
+
+.footer {
+  background-color: var(--main-color1);
+  color: white;
+  padding: 4rem 1.5rem 2rem;
+}
+
+.footer-indhold {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
+
+.footer-logo {
+  font-family: var(--font-firmanavn);
+  font-size: 32px;
+  margin-bottom: 1.5rem;
+}
+
+.footer-logo-billede img {
+  width: 160px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.footer-social img {
+  width: 32px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  font-size: 14px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-betaling {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-betaling img {
+  height: 28px;
+}
 
 /*
 

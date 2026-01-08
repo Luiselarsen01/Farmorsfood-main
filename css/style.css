@@ -39,13 +39,7 @@ body {
   color: var(--main-text-color);
 }
 
-/* Firmanavn */
-.nav-bar h1 {
-  font-family: var(--font-firmanavn);
-  font-size: 26px;
-  font-weight: 400;
-  text-transform: uppercase;
-}
+
 
 /* Overskrifter */
 h1 {
@@ -66,7 +60,7 @@ h3 {
   font-family: var(--font-overskrift);
   font-size: var(--h3-size);
   line-height: var(--h3-line);
-  font-weight: 700px;
+  font-weight: 700;
 }
 
 /* Kursiv overskrift */
@@ -82,9 +76,13 @@ p {
   font-family: var(--font-brødtekst);
   font-size: var(--p-size);
   line-height: var(--p-line);
+  margin-bottom: 1rem;
 }
 
-
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 
 /* =====================
@@ -93,35 +91,20 @@ p {
 
 .header {
   background-color: var(--main-color1);
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
+
 
 .header-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.25rem;
+  padding: 0.2rem 1.25rem;
 }
 
-/* Logo */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
-  color: white;
-}
-
-.logo img {
-  width: 164px; /* 👈 større logo */
-  height: auto;
-}
-
-.logo span {
-  font-family: var(--font-firmanavn);
-  font-size: 22px;
-  letter-spacing: 0.05em;
-}
 
 /* Ikoner */
 .header-icons {
@@ -137,42 +120,27 @@ p {
   font-size: 22px;
   cursor: pointer;
 }
-/* ===== HEADER ===== */
-.header {
-  background-color: var(--main-color1);
-}
 
-.header-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
-}
-
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: white;
   text-decoration: none;
+  color: white;
 }
 
 .logo img {
-  width: 64px;
+  width: 150px; /* 👈 større logo */
+  height: auto;
 }
 
 .logo span {
   font-family: var(--font-firmanavn);
   font-size: 22px;
+  letter-spacing: 0.05em;
 }
 
-.header-icons button {
-  background: none;
-  border: none;
-  font-size: 22px;
-  color: white;
-  cursor: pointer;
-}
 
 /* ===== OVERLAY ===== */
 .menu-overlay {
@@ -355,6 +323,17 @@ p {
   background-repeat: no-repeat;
   background-color: #fff;
   object-fit: contain;
+  transition: 
+  transform 0.3s ease,
+  box-shadow 0.3s ease;
+}
+
+.produkt1:hover,
+.produkt2:hover,
+.produkt3:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  z-index: 2;
 }
 
 .produkt1 {
@@ -379,11 +358,13 @@ p {
   font-size: 1rem;
   letter-spacing: 0.1em;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .cta:hover {
   background: #8f1f1c;
+    transform: scale(1.02) translateY(-1px);
 }
 
 .vaerdier {
@@ -539,9 +520,6 @@ p {
   width: 140px;
   margin-top: 1rem;
 }
-
-
-
 
 
 
@@ -761,59 +739,3 @@ p {
 .footer-betaling img {
   height: 28px;
 }
-
-/*
-
-
-@media (max-width: 768px) {
-  .banner-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .produkt-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .vaerdier-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .produkter-overskrift img {
-    width: 28px;
-  }
-
-  h1 {
-    font-size: 32px;
-    line-height: 36px;
-  }
-}
-
-
-
-@media (max-width: 768px) {
-  .vaerdier-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .vaerdi img {
-    transform: translateY(0); 
-
-    @media (max-width: 768px) {
-  .banner-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .vaerdier-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .vaerdier-billeder {
-    grid-template-columns: 1fr;
-  }
-
-  .vaerdier-billeder img {
-    height: 180px;
-  }
-}
-
-    

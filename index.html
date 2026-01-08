@@ -15,6 +15,7 @@ family=Bodoni+Moda+SC:wght@400
     <title>Farmors Food </title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 <header class="header">
 
@@ -28,11 +29,12 @@ family=Bodoni+Moda+SC:wght@400
 
     <!-- Ikoner -->
     <div class="header-icons">
-      <button class="kurv-btn" aria-label="Indkøbskurv">
+      <button class="kurv-btn" aria-label="Indkøbskurv" >
+
         x
       </button>
 
-      <button class="burger-btn" id="burgerBtn" aria-label="Menu">
+      <button class="burger-btn" id="burgerBtn" aria-label="Menu" >
         ☰
       </button>
     </div>
@@ -45,7 +47,7 @@ family=Bodoni+Moda+SC:wght@400
 <div class="menu-overlay" id="menuOverlay"></div>
 
 <!-- Slide-in menu -->
-<nav class="slide-menu" id="slideMenu">
+<nav class="slide-menu" id="slideMenu" aria-label="Hovedmenu">
   <button class="menu-close" id="menuClose">✕</button>
 
   <ul class="menu-links">
@@ -65,7 +67,7 @@ family=Bodoni+Moda+SC:wght@400
 <main>
 <section class="banner">
     <div class="banner-overlay">
-     <h1 class="hero-title">EN GOD OVERSKRIFT</h1>
+     <h1 class="hero-title">HÅNDLAVET SMAGSOPLEVELSE</h1>
   </div> 
         <div class="banner-grid">
 
@@ -79,7 +81,7 @@ family=Bodoni+Moda+SC:wght@400
 
 <section class="produkter">
      <div class="produkter-overskrift">
-  <img src="img/ikon-salat-blå.png" alt="">
+  <img src="img/ikon-salat-blå.png" alt="blå ikon">
   <h2 class="section-title">Produkter</h2>
   <img src="img/ikon-pølse1.png" alt="">
 </div>
@@ -88,11 +90,25 @@ family=Bodoni+Moda+SC:wght@400
   Se mere om vores lækre produkter
 </p>
         <div class="produkt-grid">
-            <div class="produkt1"></div>
-            <div class="produkt2"></div>
-            <div class="produkt3"></div>
-        </div>
-        <button class="cta">KØB NU</button>
+
+  <div class="produkt-item">
+    <div class="produkt1"></div>
+    <p class="produkt-tekst">Grillmenuer</p>
+  </div>
+
+  <div class="produkt-item">
+    <div class="produkt2"></div>
+    <p class="produkt-tekst">Tilbehør</p>
+  </div>
+
+  <div class="produkt-item">
+    <div class="produkt3"></div>
+    <p class="produkt-tekst">Vegetarpølser</p>
+  </div>
+
+</div>
+        
+        <a href="shop.html" class="cta">KØB NU</a>
     </section>
 
 <section class="vaerdier">
@@ -109,18 +125,18 @@ family=Bodoni+Moda+SC:wght@400
       <div class="vaerdier-grid">
         <div class="vaerdi">
                 <p>God smag</p>
-          <img src="img/ikon-pølse1-hvid.png" alt="">
+          <img src="img/ikon-pølse1-hvid.png" alt="ikon pølse">
       
         </div>
 
         <div class="vaerdi">     
-          <img src="img/ikon-salat-hvid.png" alt="">
+          <img src="img/ikon-salat-hvid.png" alt="ikon hvid">
           <p>Ingen tilsætningsstoffer</p>
         </div>
 
         <div class="vaerdi">
             <p>Lokale råvarer</p>
-          <img src="img/ikon-kniv1.png" alt="">
+          <img src="img/ikon-kniv1.png" alt="ikon kniv">
         </div>
       </div>
     
@@ -136,7 +152,8 @@ family=Bodoni+Moda+SC:wght@400
 
   <!-- KNAP -->
   <div class="vaerdier-cta">
-    <button class="cta">LÆS MERE</button>
+
+    <a href="shop.html" class="cta">LÆS MERE</a>
   </div>
 
 </section>
@@ -145,6 +162,8 @@ family=Bodoni+Moda+SC:wght@400
 <section class="proces">
 
   <div class="proces-container">
+    <div class="proces-inner">
+
 
     <div class="proces-item">
       <span class="proces-nummer">1</span>
@@ -168,10 +187,10 @@ family=Bodoni+Moda+SC:wght@400
       <span class="proces-nummer">3</span>
       <h3 class="proces-titel">Frisk levering</h3>
       <p class="proces-tekst">
-        Leveret direkte til døren, klar til brug
+        Leveret direkte til døren, og klar til brug
       </p>
       <img src="img/ikon-pakke-levering.png" alt="Frisk levering">
-    </div>
+    </div> 
 
     <div class="proces-item">
       <span class="proces-nummer">4</span>
@@ -181,18 +200,17 @@ family=Bodoni+Moda+SC:wght@400
       </p>
       <img src="img/ikon-gril-mennesker.png" alt="Velbekomme">
     </div>
-
   </div>
-
-</section>
+  </div>
+  </section>
 
 
 <section class="historie">
 
   <div class="historie-header">
-    <img src="img/deko-venstre.png" alt="" class="historie-deko">
+    <img src="img/ikon-pølser-blå.png" alt="billede" class="historie-deko">
     <h2 class="section-title">Historie &amp; mission</h2>
-    <img src="img/deko-hoejre.png" alt="" class="historie-deko">
+    <img src="img/ikon-pølser-blå.png" alt="billede" class="historie-deko">
   </div>
 
   <div class="historie-indhold">
@@ -200,10 +218,11 @@ family=Bodoni+Moda+SC:wght@400
     <div class="historie-tekst">
       <p class="p">
         Det hele startede med Farmors hjemmelavede pølser i Shanghai.
-        Nu tilbyder vi i Danmark et bredt udvalg med smag og tradition.
+        Nu tilbyder vi i Danmark et bredt udvalg med smag og tradition.. 
       </p>
 
-      <button class="cta">LÆS MERE</button>
+      <a href="shop.html" class="cta">LÆS MERE</a>
+  
     </div>
 
     <div class="historie-billede">
@@ -217,9 +236,9 @@ family=Bodoni+Moda+SC:wght@400
 <section class="events">
 
   <div class="events-header">
-    <img src="img/ikon-blad-blå.png" alt="" class="events-deko venstre">
+    <img src="img/ikon-blad-blå.png" alt="ikon blad" class="events-deko venstre">
     <h2 class="section-title">Events</h2>
-    <img src="img/ikon-pølse1.png" alt="" class="events-deko hoejre">
+    <img src="img/ikon-pølse1.png" alt="ikon pølse" class="events-deko hoejre">
   </div>
 
   <div class="events-hovedbillede">
@@ -241,7 +260,7 @@ family=Bodoni+Moda+SC:wght@400
     <img src="img/mad-3.jpg" alt="Servering">
   </div>
 
-  <button class="cta">BOOK</button>
+  <a href="shop.html" class="cta">BOOK</a>
 
 </section>
 
@@ -284,14 +303,9 @@ family=Bodoni+Moda+SC:wght@400
   </div>
 
 </section>
-</div>
-</div>
-</section>
-</section>
 
 
 </main>
-<footer>
   <footer class="footer">
   <div class="footer-indhold">
     <div class="footer-tekst">
@@ -324,60 +338,17 @@ family=Bodoni+Moda+SC:wght@400
   </div>
 
 
-
   <div class="footer-betaling">
     <span>Betal med:</span>
-    <img src="img/betal-visa.png" alt="">
-    <img src="img/betal-mastercard.png" alt="">
-    <img src="img/betal-mobilepay.png" alt="">
-    <img src="img/betal-applepay.png" alt="">
+    <img src="img/betal-visa.png" alt="Visa">
+    <img src="img/betal-mastercard.png" alt="Mastercard">
+    <img src="img/betal-mobilepay.png" alt="MobilePay">
+    <img src="img/betal-applepay.png" alt="ApplePay">
   </div>
 
 </footer>
 
 
-
-<script>
-  /* ===== Citat-slider ===== */
-  const track = document.querySelector(".citat-slider-track");
-  const citater = document.querySelectorAll(".citat");
-
-  const kortBredde = 420 + 24; // kortbredde + gap
-  let index = 0;
-
-  setInterval(() => {
-    index++;
-
-    if (index > citater.length - 2) {
-      index = 0;
-    }
-
-    track.style.transform = `translateX(-${index * kortBredde}px)`;
-  }, 4000);
-
-
-  /* ===== Burger menu ===== */
-  const burgerBtn = document.getElementById("burgerBtn");
-  const slideMenu = document.getElementById("slideMenu");
-  const menuOverlay = document.getElementById("menuOverlay");
-  const menuClose = document.getElementById("menuClose");
-
-  burgerBtn.addEventListener("click", () => {
-    slideMenu.classList.add("active");
-    menuOverlay.classList.add("active");
-  });
-
-  menuClose.addEventListener("click", closeMenu);
-  menuOverlay.addEventListener("click", closeMenu);
-
-  function closeMenu() {
-    slideMenu.classList.remove("active");
-    menuOverlay.classList.remove("active");
-  }
-</script>
-
-
-
-
+<script src="js/script.js"></script>
 </body>
 </html>

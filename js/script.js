@@ -36,4 +36,12 @@ if (burgerBtn && slideMenu && menuOverlay && menuClose) {
     slideMenu.classList.remove("active");
     menuOverlay.classList.remove("active");
   }
+  
 }
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeMenu();
+  }
+});
+

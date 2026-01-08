@@ -102,7 +102,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.2rem 1.25rem;
+  padding: 0.25rem 2rem;
+  position: relative;
 }
 
 
@@ -111,7 +112,8 @@ img {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
+ z-index: 3; }
+
 
 .header-icons button {
   background: none;
@@ -128,10 +130,11 @@ img {
   gap: 0.75rem;
   text-decoration: none;
   color: white;
+  position: static;
 }
 
 .logo img {
-  width: 150px; /* 👈 større logo */
+  width: 130px; /* 👈 større logo */
   height: auto;
 }
 
@@ -139,6 +142,19 @@ img {
   font-family: var(--font-firmanavn);
   font-size: 22px;
   letter-spacing: 0.05em;
+    position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none; /* så klik på ikoner stadig virker hvis overlap */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60%; /* undgå overlap med ikoner på små skærme */
+  color: white;
+  text-align: center;
+  font-family: var(--font-firmanavn);
+  font-size: 22px;
+  z-index: 2;
 }
 
 
@@ -150,7 +166,7 @@ img {
   opacity: 0;
   pointer-events: none;
   transition: 0.3s;
-  z-index: 90;
+  z-index: 95;
 }
 
 .menu-overlay.active {
@@ -161,39 +177,58 @@ img {
 /* ===== SLIDE MENU ===== */
 .slide-menu {
   position: fixed;
-  top: 0;
+  top: 0;              /* 👈 starter helt oppe */
   right: 0;
-  width: 80%;
-  max-width: 320px;
-  height: 100vh;
+  width: 300px;       /* 👈 fast bredde */
+  height: 110vh;       /* 👈 fylder hele højden */
 
   background-image: url("../img/papir-gul.png");
   background-size: 100% 100%;
-  padding: 3rem 2rem;
+  background-repeat: no-repeat;
 
+padding: 11.5rem 0 2rem 1.5rem;
   transform: translateX(100%);
-  transition: transform 0.35s ease;
-  z-index: 100;
+  transition: transform 0.4s ease;
+
+  z-index: 900;     
+  overflow-y: auto;
 }
+
 
 .slide-menu.active {
   transform: translateX(0);
 }
 
 .menu-close {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  font-size: 28px;
-  background: none;
-  border: none;
+  position: relative;
+  top: 0.25rem;        /* 👈 relativ til menuens padding */
+  left: 1.25rem;       /* 👈 relativ til menuens padding */
+
+  width: 42px;
+  height: 42px;
+
+  background: var(--main-bg);   /* 👈 matcher papiret */
+  color: var(--main-color1);
+
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.1);
+
+  font-size: 26px;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   cursor: pointer;
+z-index: 1;
 }
+
 
 .menu-links {
   list-style: none;
   padding: 0;
-  margin-top: 4rem;
+  margin-top: 2rem;
   text-align: center;
 }
 
@@ -206,8 +241,19 @@ img {
   font-size: 22px;
   color: var(--main-text-color);
   text-decoration: none;
+
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
 }
 
+.menu-links a:hover {
+  transform: translateY(-4px);
+  color: var(--main-color1);
+}
 
 
 /* BANNER */
@@ -248,15 +294,15 @@ img {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+
   font-size: 1.3rem;
   font-weight: 500;
   text-transform: lowercase;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 260px;
+  min-height: 30vh;
 }
-
 .banner-item1 {
   background-image: url(../img/mad-5.jpg);
 } 
@@ -302,7 +348,7 @@ img {
 
 
 .produkter {
-  padding: 4rem 1rem;
+  padding: 4rem 0rem;
   text-align: center;
 }
 
@@ -313,11 +359,24 @@ img {
   margin: 1.5rem 0;
 }
 
+.produkt-item {
+  text-align: center;
+}
+
+.produkt-tekst {
+  margin-top: 0.75rem;
+  font-family: var(--font-overskrift);
+  font-size: 16px;
+  letter-spacing: 0.05em;
+}
+
 
 .produkt1,
 .produkt2,
 .produkt3 {
-  min-height: 200px;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -360,7 +419,8 @@ img {
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0,0,0,0.25);
     transition: transform 0.2s ease, background-color 0.2s ease;
-}
+text-decoration: none;
+  }
 
 .cta:hover {
   background: #8f1f1c;
@@ -368,7 +428,7 @@ img {
 }
 
 .vaerdier {
-  background: var(--main-bg);
+ 
 }
 
 /* Video fylder KUN toppen */
@@ -442,13 +502,13 @@ img {
 .vaerdier-billeder {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-  margin: 2rem 0;
+  gap: 0.9rem;
+  margin: 1rem 0;
 }
 
 .vaerdier-billeder img {
   width: 100%;
-  height: 120px;
+  height: 170px;
   object-fit: cover; /* 👈 flot beskæring */
 
 }
@@ -458,6 +518,7 @@ img {
 .vaerdier-cta {
   text-align: center;
   margin-bottom: 3rem;
+  padding: 30px 0;
 }
 
 
@@ -468,20 +529,27 @@ img {
 }
 
 .proces-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 4rem 3rem;
+width: 100%; 
+  margin: 0 0;
+  padding: 1rem 3.5rem;
 
-  background-image: url("../img/papir-gul.png");
+  background-image: url("../img/papir-gul-2.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100% 100%; /* 👈 STRÆKKER papiret */
+background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.proces-inner {
+  max-width: 900px;
+  width: 100%;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4rem;
 }
-
 
 .proces-item {
   text-align: left;
@@ -574,7 +642,7 @@ img {
 
 
 .events {
-  padding: 5rem 1.5rem;
+  padding: 5rem 0rem;
   background-color: var(--main-bg);
   text-align: center;
 }
@@ -629,14 +697,17 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  max-width: 700px;
-  margin: 0 auto 3rem;
+  width:100%;
+  margin-bottom: 2rem;
+
+
 }
 
 .events-billeder img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
+  display: block;
 }
 
 
@@ -739,3 +810,4 @@ img {
 .footer-betaling img {
   height: 28px;
 }
+

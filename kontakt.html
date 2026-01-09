@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kontakt – Farmors Food</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?
+family=Bodoni+Moda+SC:wght@400
+&family=Inria+Serif:ital,wght@0,700;1,700
+&family=DM+Sans:wght@400
+&family=Brioso+Pro:ital@1
+&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- ===== HEADER (samme som forside) ===== -->
+<header class="header">
+  <div class="header-bar">
+
+    <a href="index.html" class="logo">
+      <img src="img/bedstemor-logo.png" alt="Farmors Food logo">
+      <span>FARMORS FOOD</span>
+    </a>
+
+    <div class="header-icons">
+      <button class="kurv-btn" aria-label="Indkøbskurv">x</button>
+      <button class="burger-btn" id="burgerBtn" aria-label="Menu">☰</button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Overlay -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- Slide-in menu -->
+<nav class="slide-menu" id="slideMenu">
+  <button class="menu-close" id="menuClose">✕</button>
+
+  <ul class="menu-links">
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="#">Om os</a></li>
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- ===== MAIN ===== -->
+<main>
+<section class="kontakt-side">
+
+  <!-- Breadcrumb -->
+  <p class="breadcrumb">Hjem / Kontakt</p>
+
+  <h1 class="kontakt-titel">Kontakt</h1>
+
+  <!-- Billede -->
+  <div class="kontakt-billede">
+    <img src="img/lars-event.png" alt="Farmors Food event">
+  </div>
+
+ <!-- Intro -->
+  <p class="kontakt-intro">
+    Har du spørgsmål?<br>
+    Vi hjælper dig gerne
+  </p>
+
+    
+<!-- Kontaktinfo -->
+  <div class="kontakt-info-blok">
+
+    <div class="kontakt-info">
+      <img src="img/ikon-telefon.png" alt="">
+      <h3>Telefon</h3>
+      <p>+45 60 13 28 68</p>
+    </div>
+
+    <div class="kontakt-info">
+      <img src="img/ikon-mail.png" alt="">
+      <h3>Email</h3>
+      <p>farmor@farmorsfood.dk</p>
+    </div>
+
+    <div class="kontakt-info">
+      <img src="img/ikon-lokation.png" alt="">
+      <h3>Adresse</h3>
+      <p>Klostergade 9A, 6000 Kolding</p>
+    </div>
+
+    <div class="kontakt-info">
+      <img src="img/ikon-ur.png" alt="">
+      <h3>Åbningstider</h3>
+      <p>Tirsdag & Torsdag<br>kl. 13.00 – 16.00</p>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- Formular -->
+  <div class="kontakt-formular">
+
+    <h2>Skriv til os</h2>
+    <p>Vi svarer så hurtigt vi kan</p>
+
+    <form>
+      <input type="text" placeholder="Navn" required>
+      <input type="email" placeholder="E-mail" required>
+      <textarea placeholder="Din besked" rows="4" required></textarea>
+      <button type="submit" class="cta">Send</button>
+    </form>
+
+  </div>
+
+</section>
+
+</main>
+<footer class="footer">
+  <div class="footer-indhold">
+    <div class="footer-tekst">
+      <h2 class="footer-logo">FARMORS FOOD</h2>
+
+      <p>
+        Åbningstider for køb og afhentning af bestilte varer:</strong><br>
+        Tirsdag 13.00–16.00<br>
+        Torsdag 13.00–16.00<br>
+        Eller efter aftale
+      </p>
+
+      <p>
+       Kontakt:<br>
+        60 13 28 68<br>
+        farmor@farmorsfood.dk<br>
+        Klostergade 9A, 6000 Kolding, Denmark
+      </p>
+    </div>
+
+    <div class="footer-logo-billede">
+      <img src="img/logo3.png" alt="Farmors Food logo">
+    </div>
+
+  </div>
+
+  <div class="footer-social">
+    <img src="img/ikon-face-hvid.png" alt="Facebook">
+    <img src="img/ikon-img-hvid.png" alt="Instagram">
+  </div>
+
+
+  <div class="footer-betaling">
+    <span>Betal med:</span>
+    <img src="img/betal-visa.png" alt="Visa">
+    <img src="img/betal-mastercard.png" alt="Mastercard">
+    <img src="img/betal-mobilepay.png" alt="MobilePay">
+    <img src="img/betal-applepay.png" alt="ApplePay">
+  </div>
+
+</footer>
+
+
+
+<!-- ===== SCRIPT (samme burger-menu) ===== -->
+<script>
+  const burgerBtn = document.getElementById("burgerBtn");
+  const slideMenu = document.getElementById("slideMenu");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const menuClose = document.getElementById("menuClose");
+
+  burgerBtn.addEventListener("click", () => {
+    slideMenu.classList.add("active");
+    menuOverlay.classList.add("active");
+  });
+
+  menuClose.addEventListener("click", closeMenu);
+  menuOverlay.addEventListener("click", closeMenu);
+
+  function closeMenu() {
+    slideMenu.classList.remove("active");
+    menuOverlay.classList.remove("active");
+  }
+</script>
+
+</body>
+</html>

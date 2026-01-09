@@ -4,41 +4,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&family=DM+Sans:wght@400&family=Cormorant+Garamond:ital,wght@1,300&display=swap" rel="stylesheet">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmors Food </title>
+
+  <!-- Adobe Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/hng7dwk.css">
+  <!-- CSS link -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-<header class="header">
 
+<header class="header">
   <div class="header-bar">
 
-    <!-- Logo -->
     <a href="index.html" class="logo">
       <img src="img/logo3.png" alt="Farmors Food logo">
-  
     </a>
-    <span class="header-title">FARMORS FOOD</span>
-    <div class="header-icons">
-      <button class="kurv-btn" aria-label="Indkøbskurv" >
 
-       🛒
+    <span class="header-title">FARMORS FOOD</span>
+
+    <div class="header-icons">
+
+<button class="kurv-btn" aria-label="Indkøbskurv">
+  <svg class="kurv-ikon" viewBox="0 0 24 24" aria-hidden="true">
+    <!-- Håndtag -->
+    <path d="M7 8V6a5 5 0 0 1 10 0v2"/>
+    <!-- Pose -->
+    <path d="M4 8h16l-1.5 12H5.5L4 8Z"/>
+  </svg>
+</button>
+
       </button>
 
-      <button class="burger-btn" id="burgerBtn" aria-label="Menu" >
+      <button class="burger-btn" id="burgerBtn" aria-label="Menu">
         ☰
-      </button> </div>
+      </button>
 
     </div>
-   
 
-
-
+  </div>
 </header>
+
 
 <!-- Overlay -->
 <div class="menu-overlay" id="menuOverlay"></div>

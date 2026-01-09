@@ -1,20 +1,32 @@
+/* =========================================
+   RESET / BASIS
+   Fjerner browserens standard-margin/padding
+   og gør box-model mere forudsigelig
+========================================= */
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/*Farvevarianter til hjemmesiden*/
+/* =========================================
+   CSS-VARIABLER (DESIGN SYSTEM)
+   Farver, fonte og typografi samlet ét sted
+   → nemt at ændre design globalt
+========================================= */
 :root {
-    --main-bg: #FDF9F0;
-    --main-text-color: #4A3535;
-    --main-text-color2: #FEFEFE;
-    --main-color1: #A62723;
-    --main-color2: #1A2270;
+/* Farver */
+  --main-bg: #FDF9F0;                 /* Baggrundsfarve */
+  --main-text-color: #4A3535;         /* Standard tekstfarve */
+  --main-text-color2: #FEFEFE;        /* Lys tekst (fx på rød baggrund) */
+  --main-color1: #A62723;             /* Primær rød */
+  --main-color2: #1A2270;             /* Sekundær blå */
   /* Fonte */
   --font-heading: "Inria Serif", serif;
   --font-body: "DM Sans", sans-serif;
-  --font-script: "Cormorant Garamond", serif;
+  --font-script: "Braisetto", cursive;
+
 
   /* Typografi – størrelser */
   --h1-size: 45px;
@@ -28,15 +40,10 @@
   --h3-line: 1.3;
   --p-line: 30px;
 
-  /* Typografi – farver */
-  --h1-color: var(--color-light);
-  --h2-color: var(--color-text);
-  --h3-color: var(--color-text);
-  --p-color: var(--color-text);
 }
 
 body {
-  font-family: var(--font-brødtekst);
+  font-family: var(--font-body);
   font-size: var(--p-size);
   line-height: var(--p-line);
   color: var(--main-text-color);
@@ -67,13 +74,14 @@ h3 {
   font-weight: 400;
 }
 
+/* Brødtekst */
 p {
   font-family: var(--font-body);
   font-size: var(--p-size);
   line-height: var(--p-line);
 }
 
-
+/* Kursiv / script-overskrift */
 .h3-script {
   font-family: var(--font-script);
   font-style: italic;
@@ -82,13 +90,21 @@ p {
   letter-spacing: 0.04em;
   line-height: 1.2;
 }
-
+/* =========================================
+   BILLEDER
+   Sørger for at billeder aldrig overflow’er
+========================================= */
 
 
 img {
   max-width: 100%;
   height: auto;
 }
+
+/* =========================================
+   TILGÆNGELIGHED
+   Synlig fokus-ramme ved tastatur-navigation
+========================================= */
 
 a:focus-visible,
 button:focus-visible {
@@ -97,18 +113,17 @@ button:focus-visible {
 }
 
 
-/*
+/* =========================================
    HEADER
- */
-
+   Sticky top-header med logo + ikoner
+========================================= */
 .header {
   background-color: var(--main-color1);
-  position: sticky;
+  position: sticky;      /* Bliver siddende øverst */
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
-
 
 .header-bar {
   display: flex;
@@ -118,13 +133,13 @@ button:focus-visible {
   position: relative;
 }
 
-
+/* Titel i midten (kun visuelt) */
 .header-title {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 
-  font-family: var(--font-firmanavn);
+  font-family: var(--font-heading);
   font-size: 20px;
   letter-spacing: 0.08em;
   color: white;
@@ -134,7 +149,9 @@ button:focus-visible {
 }
 
 
-/* Ikoner */
+/* =========================================
+   HEADER-IKONER (kurv + burger)
+========================================= */
 .header-icons {
   display: flex;
   align-items: center;
@@ -172,6 +189,51 @@ button:focus-visible {
   background-color: rgba(255,255,255,0.35);
   transform: scale(0.92);
 } 
+
+
+
+/* Kurv-knap */
+.kurv-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.2s ease;
+}
+
+
+/* =========================================
+   INDKØBSKURV (POSE-IKON)
+========================================= */
+
+.kurv-ikon {
+  width: 24px;
+  height: 24px;
+  fill: none;           /* Ingen fyld */
+  stroke: white;        /* Kun kontur */
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Hover */
+.kurv-btn:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-1px);
+}
+
+/* Klik */
+.kurv-btn:active {
+  transform: scale(0.95);
+}
+
+
 /* Logo */
 .logo {
   display: flex;
@@ -184,7 +246,6 @@ button:focus-visible {
 width: auto;
   height: 43px;
 }
-
 
 .logo span {
   font-family: var(--font-firmanavn);
@@ -201,8 +262,9 @@ width: auto;
 
 
 
-
-/* ===== OVERLAY ===== */
+/* =========================================
+   BURGER MENU – OVERLAY
+========================================= */
 .menu-overlay {
   position: fixed;
   inset: 0;
@@ -218,7 +280,9 @@ width: auto;
   pointer-events: auto;
 }
 
-/* ===== SLIDE MENU ===== */
+/* =========================================
+   SLIDE-MENU – 
+========================================= */
 .slide-menu {
   position: fixed;
   top: 0;              /* 👈 starter helt oppe */
@@ -238,128 +302,159 @@ padding: 11.5rem 0 2rem 1.5rem;
   overflow-y: auto;
 }
 
-
+/* =========================================
+   SLIDE-MENU – AKTIV TILSTAND
+   Når klassen .active tilføjes med JavaScript,
+   glider menuen ind fra højre
+========================================= */
 .slide-menu.active {
   transform: translateX(0);
 }
 
+/* =========================================
+   LUK-KNAP I SLIDE-MENU
+   Rund knap med kryds (✕)
+========================================= */
 .menu-close {
-  position: relative;
-  top: 0.25rem;        /* 👈 relativ til menuens padding */
-  left: 1.25rem;       /* 👈 relativ til menuens padding */
+  position: relative;       /* Placering relativ til menuens padding */
+  top: 0.25rem;             /* Lidt luft fra toppen */
+  left: 1.25rem;            /* Lidt luft fra venstre */
 
-  width: 42px;
+  width: 42px;              /* Fast størrelse – god klikflade */
   height: 42px;
 
-  background: var(--main-bg);   /* 👈 matcher papiret */
-  color: var(--main-color1);
+  background: var(--main-bg); /* Matcher papir-baggrunden */
+  color: var(--main-color1);  /* Rød som resten af brandet */
 
-  border-radius: 50%;
-  border: 2px solid rgba(0,0,0,0.1);
+  border-radius: 50%;       /* Gør knappen helt rund */
+  border: 2px solid rgba(0,0,0,0.1); /* Let kant */
 
-  font-size: 26px;
+  font-size: 26px;          /* Størrelse på krydset */
   font-weight: bold;
 
-  display: flex;
+  display: flex;            /* Centrerer krydset */
   align-items: center;
   justify-content: center;
 
-  cursor: pointer;
-z-index: 1;
+  cursor: pointer;          /* Viser at knappen er klikbar */
+  z-index: 1;               /* Ligger over baggrunden */
 }
 
 
+/* =========================================
+   MENU-LINKS (LISTE I BURGERMENU)
+========================================= */
 .menu-links {
-  list-style: none;
+  list-style: none;         /* Fjerner punkter fra <ul> */
   padding: 0;
-  margin-top: 2rem;
-  text-align: center;
+  margin-top: 2rem;         /* Luft ned fra toppen */
+  text-align: center;       /* Centrerer links */
 }
 
 .menu-links li {
-  margin: 1.5rem 0;
+  margin: 1.5rem 0;         /* Luft mellem hvert link */
 }
 
 .menu-links a {
-  font-family: var(--font-overskrift);
+   font-family: var(--font-heading);
   font-size: 22px;
   color: var(--main-text-color);
-  text-decoration: none;
+  text-decoration: none;    /* Fjerner understregning */
 
-  display: inline-block;
+  display: inline-block;    /* Gør hover-animation mulig */
   padding: 0.25rem 0.5rem;
 
-  transition:
+  transition:               /* Blød animation */
     transform 0.25s ease,
     color 0.25s ease;
 }
 
+/* Hover-effekt på menulinks */
 .menu-links a:hover {
-  transform: translateY(-4px);
-  color: var(--main-color1);
+  transform: translateY(-4px); /* Løfter linket en smule */
+  color: var(--main-color1);   /* Skifter til brand-rød */
 }
 
 
-/* BANNER */
+
+/* =========================================
+   BANNER-SEKTION
+   Øverste visuelle sektion på siden
+========================================= */
 .banner {
-    position: relative;
-
+  position: relative; /* Gør det muligt at placere overlay ovenpå */
 }
 
+/* Grid med 3 billeder/ord */
 .banner-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 lige store kolonner */
   text-align: center;
   margin-bottom: 1rem;
 }
+
+/* Overlay der ligger ovenpå banner-billederne */
 .banner-overlay {
   position: absolute;
-  inset: 0;
+  inset: 0;                     /* Fylder hele banneret */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  pointer-events: none;
+  align-items: center;          /* Centrerer lodret */
+  justify-content: center;      /* Centrerer vandret */
+  z-index: 2;                   /* Ligger over billederne */
+  pointer-events: none;         /* Kan ikke klikkes */
 }
 
+/* Overskrift i banneret */
 .banner-overlay h1 {
-  color: var(--main-text-color2);
+  color: var(--main-text-color2); /* Hvid tekst */
   text-transform: uppercase;
   letter-spacing: 0.04em;
   line-height: 1.15;
   font-weight: 400;
   text-align: center;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.4);
-} 
 
+  text-shadow:                  /* Gør teksten læsbar på billeder */
+    0 4px 10px rgba(0,0,0,0.4);
+}
+/* =========================================
+   DE TRE BANNER-FELTER
+========================================= */
 .banner-item1,
 .banner-item2,
 .banner-item3 {
-  color: var(--main-text-color2);
-  padding: 1rem 0.75rem; /* 👈 mere kontrol i bunden */
+  color: var(--main-text-color2); /* Hvid tekst */
+  padding: 1rem 0.75rem;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-end;          /* Tekst nederst */
   justify-content: center;
 
   font-size: 1.4rem;
   font-weight: 500;
   text-transform: lowercase;
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 30vh;
+
+  min-height: 30vh;               /* Giver højde på banneret */
 }
+
+/* Individuelle baggrundsbilleder */
 .banner-item1 {
   background-image: url(../img/mad-5.jpg);
-} 
+}
+
 .banner-item2 {
   background-image: url(../img/bedste-sorthvid.jpg);
 }
+
 .banner-item3 {
   background-image: url(../img/mad-6.jpg);
 }
 
-
+/* =========================================
+   EVT. TEKST INDE I BANNER
+========================================= */
 .banner-text h1 {
   font-size: 2.2rem;
   margin-bottom: 1rem;
@@ -371,84 +466,99 @@ z-index: 1;
 }
 
 
-
-
-
+/* =========================================
+   PRODUKTER – OVERSKRIFT MED IKONER
+   Flexbox bruges til at centrere ikon + tekst
+========================================= */
 .produkter-overskrift {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  display: flex;                 /* Lægger elementer på række */
+  align-items: center;           /* Centrerer lodret */
+  justify-content: center;       /* Centrerer vandret */
+  gap: 1rem;                     /* Luft mellem ikon og tekst */
 }
 
+/* Ikoner ved produktover-skriften */
 .produkter-overskrift img {
-  width: 76px;
+  width: 76px;                   /* Fast ikon-størrelse */
 }
 
+/* Undertekst under overskriften */
 .produkter-tekst {
-  margin-top: 0.5rem;
-  font-size: 14px;
-  opacity: 0.8;
+  margin-top: 0.5rem;            /* Luft over teksten */
+  font-size: 14px;               /* Mindre tekst end brødtekst */
+  opacity: 0.8;                  /* Gør teksten mere diskret */
 }
 
-
-
+/* =========================================
+   PRODUKTER – SEKTION
+========================================= */
 .produkter {
-  padding: 4rem 0rem;
-  text-align: center;
+  padding: 4rem 0rem;            /* Lodret luft i sektionen */
+  text-align: center;            /* Centrerer al tekst */
 }
 
+/* Grid med produkter */
 .produkt-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin: 1.5rem 0;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolonner */
+  gap: 1rem;                     /* Afstand mellem produkterne */
+  margin: 1.5rem 0;              /* Luft over og under grid */
 }
 
+/* Wrapper for hvert produkt */
 .produkt-item {
   text-align: center;
-   transition: transform 0.25s ease;
+  transition: transform 0.25s ease; /* Blød hover-animation */
 }
 
+/* Løfter hele produktet ved hover */
 .produkt-item:hover {
   transform: translateY(-8px);
 }
 
+/* Teksten ændrer udtryk ved hover */
 .produkt-item:hover .produkt-tekst {
-   letter-spacing: 0.1em;
-  opacity: 0.85;
+  letter-spacing: 0.1em;         /* Større bogstavafstand */
+  opacity: 0.85;                 /* Let synlighed */
 }
 
+/* Produktets tekst (fx kategori-navn) */
 .produkt-tekst {
   margin-top: 0.75rem;
-  font-family: var(--font-overskrift);
+  font-family: var(--font-body);
   font-size: 16px;
   letter-spacing: 0.03em;
   font-weight: 400;
 }
 
-
+/* =========================================
+   PRODUKT-BILLEDER (BAGGRUNDSBILLEDER)
+========================================= */
 .produkt1,
 .produkt2,
 .produkt3 {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  background-size: cover;
-  background-position: center;
+  aspect-ratio: 1 / 1;           /* Gør billedet kvadratisk */
+  background-size: cover;        /* Fylder hele feltet */
+  background-position: center;   /* Centrerer billedet */
   background-repeat: no-repeat;
-  transition: 
+
+  transition:                    /* Animation ved hover */
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
 
+/* Zoom-effekt på billedet ved hover */
 .produkt-item:hover .produkt1,
 .produkt-item:hover .produkt2,
 .produkt-item:hover .produkt3 {
-  transform: scale(1.05);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-  z-index: 2;
+  transform: scale(1.05);        /* Zoomer en smule */
+  box-shadow:                    /* Giver dybde */
+    0 10px 24px rgba(0, 0, 0, 0.25);
+  z-index: 2;                    /* Ligger over nabo-elementer */
 }
 
+/* Individuelle produktbilleder */
 .produkt1 {
   background-image: url(../img/mad-krukker.jpg);
 }
@@ -461,82 +571,103 @@ z-index: 1;
   background-image: url(../img/mad-6.jpg);
 }
 
+/* =========================================
+   CTA-KNAP (CALL TO ACTION)
+========================================= */
 .cta {
   margin-top: 1.5rem;
   padding: 0.75rem 2.5rem;
-  background: var(--main-color1);
-  color: var(--main-text-color2);
+
+  background: var(--main-color1);     /* Brand-rød */
+  color: var(--main-text-color2);     /* Hvid tekst */
+
   border: none;
-  border-radius: 10px;
+  border-radius: 10px;                /* Runde hjørner */
+
   font-size: 1rem;
   letter-spacing: 0.05em;
+
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.25);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-text-decoration: none;
-  }
+  box-shadow:                         /* Let skygge */
+    0 4px 6px rgba(0,0,0,0.25);
 
+  transition:                         /* Hover-animation */
+    transform 0.2s ease,
+    background-color 0.2s ease;
+
+  text-decoration: none;              /* Fjerner understregning */
+}
+
+/* Hover-effekt på CTA */
 .cta:hover {
-  background: #8f1f1c;
-    transform: scale(1.02) translateY(-1px);
+  background: #8f1f1c;                /* Mørkere rød */
+  transform: scale(1.02) translateY(-1px);
 }
 
-/* Værdier sektion */
+
+/* =========================================
+   VÆRDIER-SEKTION
+   Video + budskaber ovenpå
+========================================= */
 .vaerdier-video-wrapper {
-  position: relative;
-  height: 420px; /* 👈 styrer hvor høj videoen er */
-  overflow: hidden;
-  color: var(--main-bg)
+  position: relative;            /* Gør det muligt at placere indhold ovenpå video */
+  height: 420px;                 /* Styrer højden på video-sektionen */
+  overflow: hidden;              /* Skjuler video der går udenfor rammen */
+  color: var(--main-bg);         /* Tekstfarve ovenpå video */
 }
 
+/* Selve videoen */
 .vaerdier-video {
-  position: absolute;
-  inset: 0;
+  position: absolute;            /* Fylder hele wrapperen */
+  inset: 0;                      /* Top, right, bottom, left = 0 */
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: 1;
+  object-fit: cover;             /* Videoen beskæres flot */
+  z-index: 1;                    /* Ligger bag indhold */
 }
 
+/* Indhold ovenpå videoen */
 .vaerdier-indhold {
   position: relative;
-  z-index: 2;
+  z-index: 2;                    /* Ligger over videoen */
   height: 100%;
-  padding: 5rem 1rem 3.5rem;
+  padding: 5rem 1rem 3.5rem;     /* Luft omkring teksten */
   text-align: center;
 }
 
+/* Grid med værdier (ikoner + tekst) */
 .vaerdier-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolonner */
+  gap: 2rem;                     /* Afstand mellem værdier */
   margin: 2rem 0;
 }
 
-
+/* Ikoner i værdier */
 .vaerdi img {
-  width: 60px;
-  opacity: 0.8;
+  width: 60px;                   /* Ens ikonstørrelse */
+  opacity: 0.8;                  /* Gør ikonerne lidt blødere */
   margin-bottom: 0.5rem;
 }
 
+/* Wrapper for hver værdi */
 .vaerdi {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;        /* Ikon over tekst */
   align-items: center;
   justify-content: center;
-  min-height: 140px; /* 👈 giver luft */
+  min-height: 140px;             /* Ens højde på alle værdier */
   padding: 1rem;
   text-align: center;
 }
 
-
+/* Tekst under hvert ikon */
 .vaerdi p {
   margin-top: 0.25rem;
   font-size: 0.95rem;
 }
 
-
+/* Små forskydninger for at skabe organisk layout */
 .vaerdi:nth-child(1) img {
   transform: translateY(16px);
 }
@@ -549,67 +680,74 @@ text-decoration: none;
   transform: translateY(16px);
 }
 
-
+/* =========================================
+   BILLEDER UNDER VIDEOEN (VÆRDIER)
+========================================= */
 .vaerdier-billeder {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 billeder på række */
   gap: 0.9rem;
   margin: 1rem 0;
 }
 
+/* Billeder i galleriet */
 .vaerdier-billeder img {
   width: 100%;
   height: 170px;
-  object-fit: cover; /* 👈 flot beskæring */
-
+  object-fit: cover;             /* Flot beskæring af billeder */
 }
 
-
-/* CTA under billeder */
+/* =========================================
+   CTA UNDER VÆRDIER
+========================================= */
 .vaerdier-cta {
   text-align: center;
   margin-bottom: 3rem;
   padding: 30px 0;
 }
 
-
-
-
+/* =========================================
+   PROCES-SEKTION
+   Papir-baggrund med trin
+========================================= */
 .proces {
-  padding: 4rem 1.5rem;
+  padding: 4rem 1.5rem;          /* Luft omkring sektionen */
 }
 
+/* Papir-baggrund */
 .proces-paper {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 0 auto;                /* Centrerer papiret */
 
-  padding: 4.5rem 3.5rem 6rem; /* 👈 mindre side-padding */
+  padding: 4.5rem 3.5rem 6rem;   /* Indvendig luft */
 
   background-image: url("../img/papir-gul-2.png");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100% 100%;    /* Strækker papiret */
   background-position: center;
 
   position: relative;
 }
 
-
+/* Grid med proces-trin */
 .proces-inner {
-   width: 100%;
-  max-width: 880px;       
-  margin: 0 auto;           /* 👈 centrerer indholdet i papiret */
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;                /* Centrerer indholdet i papiret */
+
   display: grid;
   gap: 2.2rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 trin */
 }
 
-
+/* Hvert trin */
 .proces-item {
   text-align: center;
   max-width: 100%;
-  padding: 0 0.5rem;  
+  padding: 0 0.5rem;
 }
 
+/* Nummer på hvert trin */
 .proces-nummer {
   display: block;
   font-family: var(--font-heading);
@@ -618,10 +756,10 @@ text-decoration: none;
   color: var(--main-color2);
   text-align: center;
   margin-bottom: 0.25rem;
-    line-height: 1;
+  line-height: 1;
 }
 
-
+/* Titel på hvert trin */
 .proces-titel {
   font-family: var(--font-script);
   font-style: italic;
@@ -632,7 +770,7 @@ text-decoration: none;
   margin-bottom: 0.4rem;
 }
 
-
+/* Forklarende tekst */
 .proces-tekst {
   font-family: var(--font-body); /* DM Sans */
   font-size: 14px;
@@ -644,30 +782,31 @@ text-decoration: none;
   word-wrap: break-word;
 }
 
+/* Ikon/billede i hvert trin */
 .proces-item img {
   width: 130px;
   margin: 1.25rem auto 0;
   display: block;
 }
-
-
-
-
+/* =========================================
+   HISTORIE – TITEL + DEKORATION
+========================================= */
 .historie {
-  padding: 5rem 1.5rem;
-
+  padding: 5rem 1.5rem;          /* Luft omkring historien */
 }
 
-/* Titel + dekoration */
 .historie-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
+  display: flex;                 /* Lægger dekoration + titel på række */
+  align-items: center;           /* Centrerer lodret */
+  justify-content: center;       /* Centrerer vandret */
+  gap: 2rem;                     /* Luft mellem elementerne */
   margin-bottom: 3rem;
   text-align: center;
-
 }
+
+
+
+
 
 .historie-deko {
   width: 80px;
@@ -852,7 +991,7 @@ text-decoration: none;
 }
 
 .footer-logo {
-  font-family: var(--font-firmanavn);
+  font-family: var(--font-heading);
   font-size: 32px;
   margin-bottom: 1.5rem;
 }
@@ -928,6 +1067,121 @@ text-decoration: none;
 }
 
 
+
+/* =====================
+   KONTAKT – MOBILE FIRST
+===================== */
+
+.kontakt-side {
+  padding: 2rem 1rem 4rem;
+  background-color: #f6f1e7;
+}
+
+.breadcrumb {
+  font-size: 12px;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+
+.kontakt-titel {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.kontakt-billede img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.kontakt-intro {
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 2rem;
+}
+
+/* INFO BLOK */
+.kontakt-info-blok {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.kontakt-info {
+  text-align: center;
+}
+
+.kontakt-info img {
+  width: 28px;
+  margin-bottom: 0.5rem;
+}
+
+.kontakt-info h3 {
+  font-size: 16px;
+  margin-bottom: 0.25rem;
+}
+
+.kontakt-info p {
+  font-size: 14px;
+}
+
+/* FORM */
+.kontakt-formular {
+  background-color: #d6d2c6;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.kontakt-formular h2 {
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.kontakt-formular p {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.kontakt-formular form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.kontakt-formular input,
+.kontakt-formular textarea {
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: none;
+  font-family: var(--font-brødtekst);
+}
+
+.kontakt-formular button {
+  margin-top: 0.5rem;
+}
+
+/* =====================
+   DESKTOP
+===================== */
+
+@media (min-width: 900px) {
+
+  .kontakt-side {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .kontakt-info-blok {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+
+
+
+
 @media (max-width: 768px) {
 
   .citat {
@@ -973,3 +1227,6 @@ text-decoration: none;
     grid-template-columns: 1fr;
   }
 }
+
+
+

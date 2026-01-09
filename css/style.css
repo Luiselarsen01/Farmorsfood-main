@@ -97,9 +97,9 @@ button:focus-visible {
 }
 
 
-/* =====================
+/*
    HEADER
-===================== */
+ */
 
 .header {
   background-color: var(--main-color1);
@@ -130,7 +130,7 @@ button:focus-visible {
   color: white;
   white-space: nowrap;
 
-  pointer-events: none; /* 👈 klik går igennem */
+  pointer-events: none;
 }
 
 
@@ -149,7 +149,7 @@ button:focus-visible {
   font-size: 20px;
   cursor: pointer;
 
-  width: 44px;          /* 👈 touch target */
+  width: 44px;         
   height: 44px;
   border-radius: 50%;
 
@@ -481,8 +481,7 @@ text-decoration: none;
     transform: scale(1.02) translateY(-1px);
 }
 
-
-/* Video fylder KUN toppen */
+/* Værdier sektion */
 .vaerdier-video-wrapper {
   position: relative;
   height: 420px; /* 👈 styrer hvor høj videoen er */
@@ -597,7 +596,7 @@ text-decoration: none;
 
 .proces-inner {
    width: 100%;
-  max-width: 880px;        /* 👈 VIGTIG */
+  max-width: 880px;       
   margin: 0 auto;           /* 👈 centrerer indholdet i papiret */
   display: grid;
   gap: 2.2rem;
@@ -608,12 +607,12 @@ text-decoration: none;
 .proces-item {
   text-align: center;
   max-width: 100%;
-  padding: 0 0.5rem;   /* 👈 VIGTIG: stopper tekst i at stikke ud */
+  padding: 0 0.5rem;  
 }
 
 .proces-nummer {
   display: block;
-  font-family: var(--font-heading); /* Inria Serif */
+  font-family: var(--font-heading);
   font-size: 26px;
   font-weight: 400;
   color: var(--main-color2);
@@ -624,7 +623,7 @@ text-decoration: none;
 
 
 .proces-titel {
-  font-family: var(--font-script); /* Cormorant Garamond */
+  font-family: var(--font-script);
   font-style: italic;
   font-weight: 300;
   font-size: 24px;
@@ -897,7 +896,7 @@ text-decoration: none;
 @media (max-width: 768px) {
 
 .header-bar {
-  position: relative;          /* 👈 VIGTIG */
+  position: relative;         
   display: flex;
   align-items: center;
   justify-content: space-between;

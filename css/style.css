@@ -12,20 +12,27 @@
     --main-color1: #A62723;
     --main-color2: #1A2270;
   /* Fonte */
-  --font-firmanavn: "Bodoni Moda SC", serif;
-  --font-overskrift: "Inria Serif", serif;
-  --font-brødtekst: "DM Sans", sans-serif;
- --font-kursiv: "Cormorant Garamond", serif;
-}
+  --font-heading: "Inria Serif", serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-script: "Cormorant Garamond", serif;
 
-
-  /* Størrelser */
+  /* Typografi – størrelser */
   --h1-size: 45px;
   --h2-size: 30px;
-  --h3-size: 24px;
-  --kursiv-size: 42px;
+  --h3-size: 22px;
   --p-size: 16px;
-  --p-line: 30px; 
+
+  /* Line-height */
+  --h1-line: 1.15;
+  --h2-line: 1.25;
+  --h3-line: 1.3;
+  --p-line: 30px;
+
+  /* Typografi – farver */
+  --h1-color: var(--color-light);
+  --h2-color: var(--color-text);
+  --h3-color: var(--color-text);
+  --p-color: var(--color-text);
 }
 
 body {
@@ -40,42 +47,43 @@ body {
 
 /* Overskrifter */
 h1 {
-  font-family: var(--font-overskrift);
+  font-family: var(--font-heading);
   font-size: var(--h1-size);
-  font-weight: 700;
+  line-height: var(--h1-line);
+  font-weight: 400;
 }
 
 h2 {
-  font-family: var(--font-overskrift);
+  font-family: var(--font-heading);
   font-size: var(--h2-size);
+  line-height: var(--h2-line);
   font-weight: 700;
 }
 
 h3 {
-  font-family: var(--font-overskrift);
+  font-family: var(--font-heading);
   font-size: var(--h3-size);
-  font-weight: 700;
+  line-height: var(--h3-line);
+  font-weight: 400;
 }
 
-.kursiv-overskrift {
-  font-family: var(--font-kursiv);
-  font-size: 40px;          /* lidt mindre end resten */
-  font-style: italic;
-  font-weight: 300;         /* 👈 DETTE ER NØGLEN */
-  letter-spacing: 0.04em;   /* mere luft */
-  line-height: 1.2;
-  color: rgba(255,255,255,0.95);
-}
-
-
-
-/* Brødtekst */
 p {
-  font-family: var(--font-brødtekst);
+  font-family: var(--font-body);
   font-size: var(--p-size);
   line-height: var(--p-line);
-  margin-bottom: 1rem;
 }
+
+
+.h3-script {
+  font-family: var(--font-script);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+
 
 img {
   max-width: 100%;
@@ -108,6 +116,21 @@ button:focus-visible {
   justify-content: space-between;
   padding: 0.25rem 1rem;
   position: relative;
+}
+
+
+.header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-family: var(--font-firmanavn);
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  color: white;
+  white-space: nowrap;
+
+  pointer-events: none; /* 👈 klik går igennem */
 }
 
 
@@ -155,24 +178,18 @@ button:focus-visible {
   align-items: center;
   gap: 0.75rem;
   text-decoration: none;
-  color: white;
-  position: static;
 }
 
 .logo img {
-  width: 100px; /* 👈 større logo */
-  height: auto;
+width: auto;
+  height: 43px;
 }
 
 
 .logo span {
   font-family: var(--font-firmanavn);
-  font-size: 22px;
-  letter-spacing: 0.05em;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: none;
+  font-size: 20px;
+  letter-spacing: 0.06em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -365,7 +382,7 @@ z-index: 1;
 }
 
 .produkter-overskrift img {
-  width: 36px;
+  width: 76px;
 }
 
 .produkter-tekst {
@@ -563,65 +580,75 @@ text-decoration: none;
   padding: 4rem 1.5rem;
 }
 
-.proces-container {
-width: 100%; 
-  margin: 0 0;
-  padding: 1rem 3.5rem;
+.proces-paper {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  padding: 4.5rem 3.5rem 6rem; /* 👈 mindre side-padding */
 
   background-image: url("../img/papir-gul-2.png");
   background-repeat: no-repeat;
+  background-size: 100% 100%;
   background-position: center;
-background-size: cover;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+
+  position: relative;
 }
+
 
 .proces-inner {
-  max-width: 900px;
-  width: 100%;
-
+   width: 100%;
+  max-width: 880px;        /* 👈 VIGTIG */
+  margin: 0 auto;           /* 👈 centrerer indholdet i papiret */
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4rem;
+  gap: 2.2rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+
 .proces-item {
-  text-align: left;
-  position: relative;
+  text-align: center;
+  max-width: 100%;
+  padding: 0 0.5rem;   /* 👈 VIGTIG: stopper tekst i at stikke ud */
 }
 
 .proces-nummer {
   display: block;
-  text-align: center;
-  font-family: var(--font-overskrift);
-  font-size: 32px;
+  font-family: var(--font-heading); /* Inria Serif */
+  font-size: 26px;
+  font-weight: 400;
   color: var(--main-color2);
-  margin-bottom: 0.5rem;
+  text-align: center;
+  margin-bottom: 0.25rem;
+    line-height: 1;
 }
 
 
 .proces-titel {
-  font-family: var(--font-kursiv);
-  font-size: 30px;
+  font-family: var(--font-script); /* Cormorant Garamond */
   font-style: italic;
+  font-weight: 300;
+  font-size: 24px;
   color: var(--main-color2);
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 
 .proces-tekst {
-  font-family: var(--font-brødtekst);
-  font-size: 15px;
-  line-height: 26px;
-  margin-bottom: 1rem;
-  max-width: 260px;
+  font-family: var(--font-body); /* DM Sans */
+  font-size: 14px;
+  line-height: 22px;
+  max-width: 190px;
+  margin: 0 auto;
+  color: #000;
+  text-align: center;
+  word-wrap: break-word;
 }
 
 .proces-item img {
-  width: 140px;
-  margin-top: 1rem;
+  width: 130px;
+  margin: 1.25rem auto 0;
+  display: block;
 }
 
 
@@ -640,6 +667,7 @@ background-size: cover;
   gap: 2rem;
   margin-bottom: 3rem;
   text-align: center;
+
 }
 
 .historie-deko {
@@ -653,12 +681,15 @@ background-size: cover;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
   align-items: center;
+    background-image: url("../img/dame-læser.jpg");
 }
 
 .historie-tekst {
   text-align: left;
+  background-color: var(--main-bg);
+  padding: 2rem 1.5rem;
+  left: 100px;
 }
 
 .historie-tekst .cta {
@@ -670,7 +701,7 @@ background-size: cover;
   width: 100%;
   max-width: 420px;
   display: block;
-  margin: 0 auto;
+  padding: 3rem 1.7rem;
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
@@ -769,12 +800,18 @@ background-size: cover;
 }
 
 /* Selve kortet */
-.citat {
-  flex: 0 0 360px; /* 👈 fast bredde */
+
+ .citat {
+  flex: 0 0 360px;
   background-color: var(--main-color1);
   color: white;
-  padding: 2rem;
+
+  padding: 1.5rem 1.5rem 1.3rem; /* 👈 mindre lodret padding */
   border-radius: 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 👈 fordeler tekst og navn bedre */
 }
 
 .citat:hover {
@@ -784,16 +821,18 @@ background-size: cover;
 
 /* Tekst */
 .citat-tekst {
-  font-size: 16px;
-  line-height: 28px;
-  margin-bottom: 1rem;
+  font-size: 15px;
+  line-height: 24px;
+  margin-bottom: 0.75rem;
   position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-height: 7.2em;       /* ca. 4–5 linjer */
+  overflow: hidden;
 }
 
 .citat-navn {
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 13px;
 }
 
 
@@ -857,9 +896,15 @@ background-size: cover;
 
 @media (max-width: 768px) {
 
-  .header-bar {
-    padding: 0.5rem 1rem;
-  }
+.header-bar {
+  position: relative;          /* 👈 VIGTIG */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  padding: 0 1rem;
+}
+
 
   .logo span {
     position: static;          /* 👈 fjerner overlap */
@@ -882,12 +927,7 @@ background-size: cover;
   }
 
 }
-@media (max-width: 768px) {
-  section {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
+
 
 @media (max-width: 768px) {
 
@@ -900,10 +940,37 @@ background-size: cover;
   }
 }
 
+@media (max-width: 1023px) {
+  .proces-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
     transition: none !important;
+  }
+
+  
+}
+/* Desktop */
+@media (min-width: 1024px) {
+  .proces-inner {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .proces-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobil */
+@media (max-width: 520px) {
+  .proces-inner {
+    grid-template-columns: 1fr;
   }
 }

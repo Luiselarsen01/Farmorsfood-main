@@ -15,7 +15,9 @@
   --font-firmanavn: "Bodoni Moda SC", serif;
   --font-overskrift: "Inria Serif", serif;
   --font-brødtekst: "DM Sans", sans-serif;
-  --font-kursiv: "Brioso Pro", serif;
+ --font-kursiv: "Cormorant Garamond", serif;
+}
+
 
   /* Størrelser */
   --h1-size: 45px;
@@ -23,7 +25,7 @@
   --h3-size: 24px;
   --kursiv-size: 42px;
   --p-size: 16px;
-
+  --p-line: 30px; 
 }
 
 body {
@@ -31,6 +33,7 @@ body {
   font-size: var(--p-size);
   line-height: var(--p-line);
   color: var(--main-text-color);
+  background-color: var(--main-bg);
 }
 
 
@@ -54,25 +57,35 @@ h3 {
   font-weight: 700;
 }
 
-/* Kursiv overskrift */
 .kursiv-overskrift {
   font-family: var(--font-kursiv);
-  font-size: var(--kursiv-size);
-  line-height: var(--kursiv-line);
+  font-size: 40px;          /* lidt mindre end resten */
   font-style: italic;
+  font-weight: 300;         /* 👈 DETTE ER NØGLEN */
+  letter-spacing: 0.04em;   /* mere luft */
+  line-height: 1.2;
+  color: rgba(255,255,255,0.95);
 }
 
+
+
 /* Brødtekst */
-.p {
+p {
   font-family: var(--font-brødtekst);
   font-size: var(--p-size);
   line-height: var(--p-line);
   margin-bottom: 1rem;
 }
 
-.img {
+img {
   max-width: 100%;
   height: auto;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--main-color2);
+  outline-offset: 4px;
 }
 
 
@@ -93,7 +106,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.25rem 2rem;
+  padding: 0.25rem 1rem;
   position: relative;
 }
 
@@ -110,10 +123,32 @@ h3 {
   background: none;
   border: none;
   color: white;
-  font-size: 22px;
+  font-size: 20px;
   cursor: pointer;
+
+  width: 44px;          /* 👈 touch target */
+  height: 44px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
 }
 
+
+.header-icons button:hover,
+.header-icons button:focus-visible {
+  background-color: rgba(255,255,255,0.25);
+}
+
+.header-icons button:active {
+  background-color: rgba(255,255,255,0.35);
+  transform: scale(0.92);
+} 
 /* Logo */
 .logo {
   display: flex;
@@ -125,7 +160,7 @@ h3 {
 }
 
 .logo img {
-  width: 130px; /* 👈 større logo */
+  width: 100px; /* 👈 større logo */
   height: auto;
 }
 
@@ -273,7 +308,9 @@ z-index: 1;
 .banner-overlay h1 {
   color: var(--main-text-color2);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  font-weight: 400;
   text-align: center;
   text-shadow: 0 4px 10px rgba(0,0,0,0.4);
 } 
@@ -282,12 +319,12 @@ z-index: 1;
 .banner-item2,
 .banner-item3 {
   color: var(--main-text-color2);
-  padding: 2rem 1rem 1.5rem; /* 👈 mere kontrol i bunden */
+  padding: 1rem 0.75rem; /* 👈 mere kontrol i bunden */
   display: flex;
   align-items: flex-end;
   justify-content: center;
 
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 500;
   text-transform: lowercase;
   background-size: cover;
@@ -347,19 +384,30 @@ z-index: 1;
 .produkt-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  gap: 1rem;
   margin: 1.5rem 0;
 }
 
 .produkt-item {
   text-align: center;
+   transition: transform 0.25s ease;
+}
+
+.produkt-item:hover {
+  transform: translateY(-8px);
+}
+
+.produkt-item:hover .produkt-tekst {
+   letter-spacing: 0.1em;
+  opacity: 0.85;
 }
 
 .produkt-tekst {
   margin-top: 0.75rem;
   font-family: var(--font-overskrift);
   font-size: 16px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
+  font-weight: 400;
 }
 
 
@@ -371,15 +419,14 @@ z-index: 1;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #fff;
   transition: 
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
 
-.produkt1:hover,
-.produkt2:hover,
-.produkt3:hover {
+.produkt-item:hover .produkt1,
+.produkt-item:hover .produkt2,
+.produkt-item:hover .produkt3 {
   transform: scale(1.05);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
   z-index: 2;
@@ -399,13 +446,13 @@ z-index: 1;
 
 .cta {
   margin-top: 1.5rem;
-  padding: 0.9rem 2.5rem;
+  padding: 0.75rem 2.5rem;
   background: var(--main-color1);
   color: var(--main-text-color2);
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 1rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0,0,0,0.25);
     transition: transform 0.2s ease, background-color 0.2s ease;
@@ -439,7 +486,7 @@ text-decoration: none;
   position: relative;
   z-index: 2;
   height: 100%;
-  padding: 4rem 1rem;
+  padding: 5rem 1rem 3.5rem;
   text-align: center;
 }
 
@@ -452,7 +499,8 @@ text-decoration: none;
 
 
 .vaerdi img {
-  width: 50px;
+  width: 60px;
+  opacity: 0.8;
   margin-bottom: 0.5rem;
 }
 
@@ -469,7 +517,7 @@ text-decoration: none;
 
 .vaerdi p {
   margin-top: 0.25rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 
@@ -581,7 +629,7 @@ background-size: cover;
 
 .historie {
   padding: 5rem 1.5rem;
-  background-color: var(--main-bg);
+
 }
 
 /* Titel + dekoration */
@@ -630,7 +678,7 @@ background-size: cover;
 
 .events {
   padding: 5rem 0rem;
-  background-color: var(--main-bg);
+
   text-align: center;
 }
 
@@ -729,12 +777,18 @@ background-size: cover;
   border-radius: 18px;
 }
 
+.citat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
 /* Tekst */
 .citat-tekst {
   font-size: 16px;
   line-height: 28px;
   margin-bottom: 1rem;
   position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .citat-navn {
@@ -818,7 +872,7 @@ background-size: cover;
     gap: 0.1rem;
   }
 
-  @media (max-width: 768px) {
+
 
   .banner-overlay h1 {
     font-size: 1.6rem;        /* 👈 mindre tekst */
@@ -845,4 +899,11 @@ background-size: cover;
     padding-left: 1rem;
   }
 }
+
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }

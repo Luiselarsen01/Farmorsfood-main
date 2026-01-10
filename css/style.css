@@ -382,88 +382,64 @@ padding: 11.5rem 0 2rem 1.5rem;
    Øverste visuelle sektion på siden
 ========================================= */
 .banner {
-  position: relative; /* Gør det muligt at placere overlay ovenpå */
+  position: relative;
+  width: 100%;
+  height: clamp(520px, 40vw, 650px); /* 👈 ÉN samlet højde */
+  overflow: hidden;
 }
-
-/* Grid med 3 billeder/ord */
+/* Grid */
 .banner-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 lige store kolonner */
-  text-align: center;
-  margin-bottom: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%; /* 👈 arver bannerets højde */
 }
 
-/* Overlay der ligger ovenpå banner-billederne */
-.banner-overlay {
+/* Banner-felt */
+.banner-item {
+  position: relative;
+  width: 100%;
+  min-height: clamp(300px, 35vw, 600px); /* vokser med skærmen */
+  overflow: hidden;
+}
+
+/* Billedet */
+.banner-item img {
+ position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Tekst i bunden */
+.banner-item span {
   position: absolute;
-  inset: 0;                     /* Fylder hele banneret */
-  display: flex;
-  align-items: center;          /* Centrerer lodret */
-  justify-content: center;      /* Centrerer vandret */
-  z-index: 2;                   /* Ligger over billederne */
-  pointer-events: none;         /* Kan ikke klikkes */
-}
-
-/* Overskrift i banneret */
-.banner-overlay h1 {
-  color: var(--main-text-color2); /* Hvid tekst */
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  line-height: 1.15;
-  font-weight: 400;
-  text-align: center;
-
-  text-shadow:                  /* Gør teksten læsbar på billeder */
-    0 4px 10px rgba(0,0,0,0.4);
-}
-/* =========================================
-   DE TRE BANNER-FELTER
-========================================= */
-.banner-item1,
-.banner-item2,
-.banner-item3 {
-  color: var(--main-text-color2); /* Hvid tekst */
-  padding: 1rem 0.75rem;
-  display: flex;
-  align-items: flex-end;          /* Tekst nederst */
-  justify-content: center;
-
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
   font-size: 1.4rem;
   font-weight: 500;
   text-transform: lowercase;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  min-height: 30vh;               /* Giver højde på banneret */
+  z-index: 2;
 }
 
-/* Individuelle baggrundsbilleder */
-.banner-item1 {
-  background-image: url(../img/mad-5.jpg);
+/* Overlay-overskrift */
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 3;
 }
 
-.banner-item2 {
-  background-image: url(../img/bedste-sorthvid.jpg);
+.banner-overlay h1 {
+  color: white;
+  text-align: center;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-.banner-item3 {
-  background-image: url(../img/mad-6.jpg);
-}
-
-/* =========================================
-   EVT. TEKST INDE I BANNER
-========================================= */
-.banner-text h1 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-}
-
-.banner-text h2 {
-  font-size: 1rem;
-  line-height: 1.5;
-}
 
 
 /* =========================================
@@ -493,7 +469,7 @@ padding: 11.5rem 0 2rem 1.5rem;
    PRODUKTER – SEKTION
 ========================================= */
 .produkter {
-  padding: 4rem 0rem;            /* Lodret luft i sektionen */
+  padding: 3.5rem 0rem;            /* Lodret luft i sektionen */
   text-align: center;            /* Centrerer al tekst */
 }
 
@@ -542,6 +518,7 @@ padding: 11.5rem 0 2rem 1.5rem;
   background-size: cover;        /* Fylder hele feltet */
   background-position: center;   /* Centrerer billedet */
   background-repeat: no-repeat;
+    aspect-ratio: 1 / 1;
 
   transition:                    /* Animation ved hover */
     transform 0.3s ease,
@@ -575,7 +552,7 @@ padding: 11.5rem 0 2rem 1.5rem;
    CTA-KNAP (CALL TO ACTION)
 ========================================= */
 .cta {
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
   padding: 0.75rem 2.5rem;
 
   background: var(--main-color1);     /* Brand-rød */
@@ -611,10 +588,9 @@ padding: 11.5rem 0 2rem 1.5rem;
 ========================================= */
 .vaerdier-video-wrapper {
   position: relative;            /* Gør det muligt at placere indhold ovenpå video */
-  height: 420px;                 /* Styrer højden på video-sektionen */
+  height: 300px;                 /* Styrer højden på video-sektionen */
   overflow: hidden;              /* Skjuler video der går udenfor rammen */
-  color: var(--main-bg);         /* Tekstfarve ovenpå video */
-}
+  color: var(--main-bg);         /* Tekstfarve ovenpå video */;}
 
 /* Selve videoen */
 .vaerdier-video {
@@ -631,7 +607,7 @@ padding: 11.5rem 0 2rem 1.5rem;
   position: relative;
   z-index: 2;                    /* Ligger over videoen */
   height: 100%;
-  padding: 5rem 1rem 3.5rem;     /* Luft omkring teksten */
+  padding: 1rem;                 /* Luft omkring teksten */
   text-align: center;
 }
 
@@ -702,7 +678,7 @@ padding: 11.5rem 0 2rem 1.5rem;
 ========================================= */
 .vaerdier-cta {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   padding: 30px 0;
 }
 
@@ -711,22 +687,20 @@ padding: 11.5rem 0 2rem 1.5rem;
    Papir-baggrund med trin
 ========================================= */
 .proces {
-  padding: 4rem 1.5rem;          /* Luft omkring sektionen */
+  padding: 2.5rem;          /* Luft omkring sektionen */
 }
 
 /* Papir-baggrund */
 .proces-paper {
-  max-width: 1100px;
+  max-width: 1500px;
   margin: 0 auto;                /* Centrerer papiret */
-
-  padding: 4.5rem 3.5rem 6rem;   /* Indvendig luft */
-
   background-image: url("../img/papir-gul-2.png");
   background-repeat: no-repeat;
-  background-size: 100% 100%;    /* Strækker papiret */
   background-position: center;
-
   position: relative;
+  padding: 7rem 3rem 7.5rem; /* 👈 mere højde + mere papir */
+  background-size: cover;     /* 👈 papiret må gerne vokse */
+  min-height: 520px;
 }
 
 /* Grid med proces-trin */
@@ -736,26 +710,32 @@ padding: 11.5rem 0 2rem 1.5rem;
   margin: 0 auto;                /* Centrerer indholdet i papiret */
 
   display: grid;
-  gap: 2.2rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 trin */
+  gap: 3rem 2rem;
+   grid-template-columns: repeat(2, 1fr);
+  margin-top: 2.5rem; /* 👈 skubber hele indholdet ned */
+
 }
 
 /* Hvert trin */
 .proces-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   text-align: center;
-  max-width: 100%;
-  padding: 0 0.5rem;
+  min-height: 260px; /* 👈 ens højde som på billedet */
 }
+
 
 /* Nummer på hvert trin */
 .proces-nummer {
   display: block;
   font-family: var(--font-heading);
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 400;
   color: var(--main-color2);
   text-align: center;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.4rem;
   line-height: 1;
 }
 
@@ -764,10 +744,10 @@ padding: 11.5rem 0 2rem 1.5rem;
   font-family: var(--font-script);
   font-style: italic;
   font-weight: 300;
-  font-size: 24px;
+  font-size: 30px;
   color: var(--main-color2);
   text-align: center;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
 }
 
 /* Forklarende tekst */
@@ -784,7 +764,7 @@ padding: 11.5rem 0 2rem 1.5rem;
 
 /* Ikon/billede i hvert trin */
 .proces-item img {
-  width: 130px;
+  width: 120px;
   margin: 1.25rem auto 0;
   display: block;
 }
@@ -867,7 +847,7 @@ padding: 11.5rem 0 2rem 1.5rem;
 /* Hovedbillede med tape-look */
 .events-hovedbillede {
   position: relative;
-  max-width: 420px;
+  max-width: 320px;
   margin: 0 auto 2.5rem;
 }
 
@@ -917,7 +897,7 @@ padding: 11.5rem 0 2rem 1.5rem;
 
 
 .citater {
-  padding: 4rem 1.5rem;
+  padding: 4rem 0rem;
   background-color: var(--main-bg);
 }
 
@@ -963,8 +943,7 @@ padding: 11.5rem 0 2rem 1.5rem;
   line-height: 24px;
   margin-bottom: 0.75rem;
   position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-height: 7.2em;       /* ca. 4–5 linjer */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
 
@@ -979,41 +958,66 @@ padding: 11.5rem 0 2rem 1.5rem;
 .footer {
   background-color: var(--main-color1);
   color: white;
-  padding: 4rem 1.5rem 2rem;
+  padding: 2rem 1.5rem 2rem;
+  position: relative;
 }
 
 .footer-indhold {
-  max-width: 1000px;
+  max-width: 420px;          /* 👈 smal som dit billede */
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  text-align: left;
 }
 
 .footer-logo {
-  font-family: var(--font-heading);
-  font-size: 32px;
-  margin-bottom: 1.5rem;
+ font-family: var(--font-heading);
+  font-size: 26px;
+  margin-bottom: 0.5rem;
+}
+
+.footer-logo-billede {
+  position: absolute;
+  right: 1.5rem;   /* afstand fra højre kant */
+  bottom: 1.5rem;  /* afstand fra bunden */
+  margin: 0; 
+}
+.footer-label {
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 0.25rem;
 }
 
 .footer-logo-billede img {
-  width: 160px;
+  width: 110px;   /* matcher billedet */
+  height: auto;
+  display: block;        /* 👈 ingen inline-luft */
+}
+
+.footer-tekst p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
 .footer-social {
   display: flex;
-  gap: 1.5rem;
-  margin: 2rem 0;
+  gap: 1rem;
+  margin: 1rem 0;
 }
 
 .footer-social img {
-  width: 32px;
+  width: 36px;
 }
 
 .footer-links {
   display: flex;
-  gap: 2rem;
-  font-size: 14px;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 13px;
 }
 
 .footer-links a {
@@ -1022,14 +1026,30 @@ padding: 11.5rem 0 2rem 1.5rem;
 }
 
 .footer-betaling {
-  margin-top: 2rem;
-  display: flex;
+ display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
 .footer-betaling img {
-  height: 28px;
+  height: 22px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between; /* 👈 tekst venstre, logo højre */
+  align-items: flex-start;
+  gap: 1rem;
+
+}
+.footer-heading {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+  color: white;
 }
 
 @media (max-width: 768px) {
@@ -1074,7 +1094,7 @@ padding: 11.5rem 0 2rem 1.5rem;
 
 .kontakt-side {
   padding: 2rem 1rem 4rem;
-  background-color: #f6f1e7;
+
 }
 
 .breadcrumb {
@@ -1102,8 +1122,9 @@ padding: 11.5rem 0 2rem 1.5rem;
 
 /* INFO BLOK */
 .kontakt-info-blok {
-  display: grid;
-  gap: 1.5rem;
+   display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
   margin-bottom: 3rem;
 }
 
@@ -1112,33 +1133,37 @@ padding: 11.5rem 0 2rem 1.5rem;
 }
 
 .kontakt-info img {
-  width: 28px;
-  margin-bottom: 0.5rem;
+  width: 34px;
+margin: 0 auto 0.75rem;
 }
 
 .kontakt-info h3 {
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: 20px;
   margin-bottom: 0.25rem;
 }
 
 .kontakt-info p {
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 /* FORM */
 .kontakt-formular {
-  background-color: #d6d2c6;
-  padding: 1.5rem;
-  border-radius: 8px;
+  background-color: #d8d4c8;
+  padding: 2rem 1.5rem;
+  border-radius: 14px;
+  max-width: 420px;
+  margin: 2.5rem auto 0;
 }
 
 .kontakt-formular h2 {
-  text-align: center;
+  text-align: left;
   margin-bottom: 0.25rem;
 }
 
 .kontakt-formular p {
-  text-align: center;
+  text-align: left;
   font-size: 14px;
   margin-bottom: 1rem;
 }
@@ -1147,18 +1172,88 @@ padding: 11.5rem 0 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  color: var(--main-text-color2);
 }
 
 .kontakt-formular input,
 .kontakt-formular textarea {
-  padding: 0.7rem;
-  border-radius: 6px;
+   padding: 0.8rem;
+  border-radius: 10px;
   border: none;
-  font-family: var(--font-brødtekst);
+  font-size: 14px;
 }
 
 .kontakt-formular button {
-  margin-top: 0.5rem;
+  margin: 1rem auto 0;
+  display: block;
+}
+
+
+/* =====================
+   KONTAKT – EKSTRA SEKTION
+===================== */
+
+.kontakt-ekstra {
+  padding: 3rem 1rem 2rem;
+  background-color: var(--main-bg);
+}
+
+/* Papir-look */
+.kontakt-papir {
+  background-image: url("../img/papir-gul-2.png");
+    background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%; /* 👈 strækker papiret */
+
+  padding: 3.5rem 2rem;      /* 👈 mere luft = længere papir */
+  margin-bottom: 2.5rem;
+  text-align: center;
+
+  max-width: 520px;          /* matcher mobil-look */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kontakt-papir p {
+  font-family: var(--font-script); /* Braisetto */
+  font-size: 30px;                 /* 👈 større */
+  line-height: 1.4;
+  color: var(--main-text-color);
+}
+
+/* Kort */
+.kontakt-kort iframe {
+  width: 100%;
+  height: 260px;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 2.5rem;
+}
+
+/* Sociale medier */
+.kontakt-social {
+  text-align: center;
+}
+
+.kontakt-social h3 {
+  font-family: var(--font-script);
+  font-size: 26px;
+  margin-bottom: 1rem;
+}
+
+.kontakt-social-ikoner {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.kontakt-social-ikoner img {
+  width: 42px;
+  transition: transform 0.2s ease;
+}
+
+.kontakt-social-ikoner img:hover {
+  transform: scale(1.1);
 }
 
 /* =====================
@@ -1230,3 +1325,9 @@ padding: 11.5rem 0 2rem 1.5rem;
 
 
 
+@media (min-width: 1024px) {
+  .banner-item {
+    aspect-ratio: 16 / 9;
+    min-height: clamp(420px, 35vw, 600px);
+  }
+}

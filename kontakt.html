@@ -1,59 +1,71 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <title>Kontakt – Farmors Food</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmors Food Kontakt</title>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?
-family=Bodoni+Moda+SC:wght@400
-&family=Inria+Serif:ital,wght@0,700;1,700
-&family=DM+Sans:wght@400
-&family=Brioso+Pro:ital@1
-&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Adobe Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/hng7dwk.css">
+  <!-- CSS link -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<!-- ===== HEADER (samme som forside) ===== -->
 <header class="header">
   <div class="header-bar">
 
     <a href="index.html" class="logo">
-      <img src="img/bedstemor-logo.png" alt="Farmors Food logo">
-      <span>FARMORS FOOD</span>
+      <img src="img/logo3.png" alt="Farmors Food logo">
     </a>
 
+    <span class="header-title">FARMORS FOOD</span>
+
     <div class="header-icons">
-      <button class="kurv-btn" aria-label="Indkøbskurv">x</button>
-      <button class="burger-btn" id="burgerBtn" aria-label="Menu">☰</button>
+
+<button class="kurv-btn" aria-label="Indkøbskurv">
+  <svg class="kurv-ikon" viewBox="0 0 24 24" aria-hidden="true">
+    <!-- Håndtag -->
+    <path d="M7 8V6a5 5 0 0 1 10 0v2"/>
+    <!-- Pose -->
+    <path d="M4 8h16l-1.5 12H5.5L4 8Z"/>
+  </svg>
+</button>
+
+      </button>
+
+      <button class="burger-btn" id="burgerBtn" aria-label="Menu">
+        ☰
+      </button>
+
     </div>
 
   </div>
 </header>
 
+
 <!-- Overlay -->
 <div class="menu-overlay" id="menuOverlay"></div>
 
 <!-- Slide-in menu -->
-<nav class="slide-menu" id="slideMenu">
+<nav class="slide-menu" id="slideMenu" aria-label="Hovedmenu">
   <button class="menu-close" id="menuClose">✕</button>
 
   <ul class="menu-links">
-    <li><a href="index.html">Forside</a></li>
+    <li><a href="#">Forside</a></li>
     <li><a href="#">Om os</a></li>
     <li><a href="#">Menu</a></li>
     <li><a href="#">Events</a></li>
-    <li><a href="kontakt.html">Kontakt</a></li>
+    <li><a href="#">Kontakt</a></li>
   </ul>
 </nav>
+
+
+
 
 <!-- ===== MAIN ===== -->
 <main>
@@ -66,42 +78,46 @@ family=Bodoni+Moda+SC:wght@400
 
   <!-- Billede -->
   <div class="kontakt-billede">
-    <img src="img/lars-event.png" alt="Farmors Food event">
+    <img src="img/Skærmbillede 2026-01-05 kl. 13.07.48 1.png" alt="Farmors Food event">
   </div>
 
  <!-- Intro -->
-  <p class="kontakt-intro">
+  <h2 class="kontakt-intro">
     Har du spørgsmål?<br>
     Vi hjælper dig gerne
-  </p>
 
-    
-<!-- Kontaktinfo -->
+  </h2>
+
+  <!-- Kontaktinfo -->
   <div class="kontakt-info-blok">
 
     <div class="kontakt-info">
-      <img src="img/ikon-telefon.png" alt="">
-      <h3>Telefon</h3>
+    
+      <h2>Telefon</h2>
       <p>+45 60 13 28 68</p>
+        <img src="img/telefon ikon.png" alt="">
     </div>
 
     <div class="kontakt-info">
-      <img src="img/ikon-mail.png" alt="">
-      <h3>Email</h3>
+
+      <h2>Email</h2>
       <p>farmor@farmorsfood.dk</p>
+         <img src="img/brev ikon.png" alt="">
     </div>
 
     <div class="kontakt-info">
-      <img src="img/ikon-lokation.png" alt="">
-      <h3>Adresse</h3>
+
+      <h2>Adresse</h2>
       <p>Klostergade 9A, 6000 Kolding</p>
+      <img src="img/pind ikon.png" alt="">
     </div>
 
     <div class="kontakt-info">
-      <img src="img/ikon-ur.png" alt="">
-      <h3>Åbningstider</h3>
+
+      <h2>Åbningstider</h2>
       <p>Tirsdag & Torsdag<br>kl. 13.00 – 16.00</p>
-    </div>
+         <img src="img/ur ikon.png" alt="">
+         </div>
   </div>
 
 
@@ -112,13 +128,13 @@ family=Bodoni+Moda+SC:wght@400
   <!-- Formular -->
   <div class="kontakt-formular">
 
-    <h2>Skriv til os</h2>
+    <h3>Skriv til os</h2>
     <p>Vi svarer så hurtigt vi kan</p>
 
     <form>
       <input type="text" placeholder="Navn" required>
       <input type="email" placeholder="E-mail" required>
-      <textarea placeholder="Din besked" rows="4" required></textarea>
+      <textarea placeholder="Din besked.." rows="4" required></textarea>
       <button type="submit" class="cta">Send</button>
     </form>
 
@@ -126,71 +142,75 @@ family=Bodoni+Moda+SC:wght@400
 
 </section>
 
+<section class="kontakt-ekstra">
+
+  <!-- Papir-tekst -->
+  <div class="kontakt-papir">
+    <p>
+      Vi sender til hele landet –<br>
+      eller afhentning i Kolding.
+    </p>
+  </div>
+
+  <!-- Kort -->
+  <div class="kontakt-kort">
+    <iframe
+      src="https://www.google.com/maps?q=Klostergade%209A%2C%206000%20Kolding&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <!-- Sociale medier -->
+  <div class="kontakt-social">
+    <h3>Hold kontakten</h3>
+    <div class="kontakt-social-ikoner">
+      <img src="img/ikon-ins-blå.png" alt="Instagram">
+      <img src="img/ikon-facebook-blå.png" alt="Facebook">
+    </div>
+  </div>
+
+</section>
+
+
 </main>
 <footer class="footer">
   <div class="footer-indhold">
-    <div class="footer-tekst">
-      <h2 class="footer-logo">FARMORS FOOD</h2>
 
-      <p>
-        Åbningstider for køb og afhentning af bestilte varer:</strong><br>
-        Tirsdag 13.00–16.00<br>
-        Torsdag 13.00–16.00<br>
-        Eller efter aftale
-      </p>
+    <div class="footer-top">
+      <div class="footer-tekst">
 
-      <p>
-       Kontakt:<br>
-        60 13 28 68<br>
-        farmor@farmorsfood.dk<br>
-        Klostergade 9A, 6000 Kolding, Denmark
-      </p>
+           <h2 class="footer-heading">FARMORS FOOD</h2>
+        <p>
+          <span class="footer-label">Åbningstider for køb og afhentning af bestilte varer:</span><br>
+          Tirsdag 13.00–16.00<br>
+          Torsdag 13.00–16.00<br>
+          Eller efter aftale
+        </p>
+
+        <p>
+<span class="footer-label">Kontakt</span><br>
+          60 13 28 68<br>
+          farmor@farmorsfood.dk<br>
+          FARMORS FOOD, Klostergade 9A, 6000 Kolding, Denmark
+        </p>
+      </div>
+
+      <div class="footer-logo-billede">
+        <img src="img/logo3.png" alt="Farmors Food logo">
+      </div>
     </div>
 
-    <div class="footer-logo-billede">
-      <img src="img/logo3.png" alt="Farmors Food logo">
+    <div class="footer-social">
+      <img src="img/ikon-face-hvid.png" alt="Facebook">
+      <img src="img/ikon-img-hvid.png" alt="Instagram">
     </div>
 
+
   </div>
-
-  <div class="footer-social">
-    <img src="img/ikon-face-hvid.png" alt="Facebook">
-    <img src="img/ikon-img-hvid.png" alt="Instagram">
-  </div>
-
-
-  <div class="footer-betaling">
-    <span>Betal med:</span>
-    <img src="img/betal-visa.png" alt="Visa">
-    <img src="img/betal-mastercard.png" alt="Mastercard">
-    <img src="img/betal-mobilepay.png" alt="MobilePay">
-    <img src="img/betal-applepay.png" alt="ApplePay">
-  </div>
-
 </footer>
 
 
-
-<!-- ===== SCRIPT (samme burger-menu) ===== -->
-<script>
-  const burgerBtn = document.getElementById("burgerBtn");
-  const slideMenu = document.getElementById("slideMenu");
-  const menuOverlay = document.getElementById("menuOverlay");
-  const menuClose = document.getElementById("menuClose");
-
-  burgerBtn.addEventListener("click", () => {
-    slideMenu.classList.add("active");
-    menuOverlay.classList.add("active");
-  });
-
-  menuClose.addEventListener("click", closeMenu);
-  menuOverlay.addEventListener("click", closeMenu);
-
-  function closeMenu() {
-    slideMenu.classList.remove("active");
-    menuOverlay.classList.remove("active");
-  }
-</script>
-
+<script src="js/script.js"></script>
 </body>
 </html>

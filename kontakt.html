@@ -71,13 +71,19 @@
 <main>
 <section class="kontakt-side">
 
-  <!-- Breadcrumb -->
-  <p class="breadcrumb">Hjem / Kontakt</p>
+<nav class="breadcrumb-bar" aria-label="Brødkrummesti">
+  <div class="breadcrumb-indhold">
+    <a href="index.html">Hjem</a>
+    <span class="breadcrumb-separator">/</span>
+    <span class="breadcrumb-current" aria-current="page">Kontakt</span>
+  </div>
+</nav>
 
-  <h1 class="kontakt-titel">Kontakt</h1>
 
+      <h1 class="kontakt-hero-title">KONTAKT</h1>
   <!-- Billede -->
   <div class="kontakt-billede">
+
     <img src="img/Skærmbillede 2026-01-05 kl. 13.07.48 1.png" alt="Farmors Food event">
   </div>
 
@@ -95,28 +101,28 @@
     
       <h2>Telefon</h2>
       <p>+45 60 13 28 68</p>
-        <img src="img/telefon ikon.png" alt="">
+        <img src="img/telefon ikon.png" alt="telefon" aria-hidden="true">
     </div>
 
     <div class="kontakt-info">
 
       <h2>Email</h2>
       <p>farmor@farmorsfood.dk</p>
-         <img src="img/brev ikon.png" alt="">
+         <img src="img/brev ikon.png" alt="brev" aria-hidden="true">
     </div>
 
     <div class="kontakt-info">
 
       <h2>Adresse</h2>
       <p>Klostergade 9A, 6000 Kolding</p>
-      <img src="img/pind ikon.png" alt="">
+      <img src="img/pind ikon.png" alt="lokation" aria-hidden="true">
     </div>
 
     <div class="kontakt-info">
 
       <h2>Åbningstider</h2>
       <p>Tirsdag & Torsdag<br>kl. 13.00 – 16.00</p>
-         <img src="img/ur ikon.png" alt="">
+         <img src="img/ur ikon.png" alt="ur" aria-hidden="true">
          </div>
   </div>
 
@@ -132,10 +138,12 @@
     <p>Vi svarer så hurtigt vi kan</p>
 
     <form>
+
       <input type="text" placeholder="Navn" required>
       <input type="email" placeholder="E-mail" required>
       <textarea placeholder="Din besked.." rows="4" required></textarea>
       <button type="submit" class="cta">Send</button>
+      
     </form>
 
   </div>
@@ -146,10 +154,10 @@
 
   <!-- Papir-tekst -->
   <div class="kontakt-papir">
-    <p>
-      Vi sender til hele landet –<br>
-      eller afhentning i Kolding.
-    </p>
+ <h3 class="kontakt-papir-titel">
+    Vi sender til hele landet –<br>
+    eller afhentning i Kolding
+  </h3>
   </div>
 
   <!-- Kort -->
@@ -163,10 +171,10 @@
 
   <!-- Sociale medier -->
   <div class="kontakt-social">
-    <h3>Hold kontakten</h3>
+    <h3 class="kontakt-papir-titel">Hold kontakten</h3>
     <div class="kontakt-social-ikoner">
-      <img src="img/ikon-ins-blå.png" alt="Instagram">
-      <img src="img/ikon-facebook-blå.png" alt="Facebook">
+      <img src="img/ikon-ins-blå.png" alt="Instagram" aria-hidden="true">
+      <img src="img/ikon-facebook-blå.png" alt="Facebook" aria-hidden="true">
     </div>
   </div>
 
@@ -197,13 +205,14 @@
       </div>
 
       <div class="footer-logo-billede">
-        <img src="img/logo3.png" alt="Farmors Food logo">
+        <img src="img/logo3.png" alt="Farmors Food logo" aria-hidden="true">
       </div>
     </div>
 
     <div class="footer-social">
-      <img src="img/ikon-face-hvid.png" alt="Facebook">
-      <img src="img/ikon-img-hvid.png" alt="Instagram">
+<a href="https://instagram.com" aria-label="Farmors Food på Instagram">
+  <img src="img/ikon-ins-blå.png" alt="" aria-hidden="true">
+</a>
     </div>
 
 

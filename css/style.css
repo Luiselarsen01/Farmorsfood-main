@@ -995,6 +995,7 @@ padding: 11.5rem 0 2rem 1.5rem;
   width: 110px;   /* matcher billedet */
   height: auto;
   display: block;        /* 👈 ingen inline-luft */
+   transform: scaleX(-1);
 }
 
 .footer-tekst p {
@@ -1044,10 +1045,11 @@ padding: 11.5rem 0 2rem 1.5rem;
 
 }
 .footer-heading {
-  font-family: var(--font-heading);
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-family: var(--font-heading); /* Inria Serif */
+  font-size: 24px;
+  font-weight: 400;                /* 👈 ikke fed */
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   margin-bottom: 0.75rem;
   color: white;
 }
@@ -1097,27 +1099,94 @@ padding: 11.5rem 0 2rem 1.5rem;
 
 }
 
-.breadcrumb {
-  font-size: 12px;
-  opacity: 0.6;
-  margin-bottom: 1rem;
+
+/* =====================
+   BREADCRUMB BAR
+===================== */
+
+
+.breadcrumb-bar {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  border-bottom: 10px solid var(--main-color1);
+  margin-top: -20px;
 }
 
-.kontakt-titel {
+
+.breadcrumb-indhold {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0rem 1rem 0.55rem; /* 👈 mindre top/bund */
+  font-family: var(--font-heading);
+  font-size: 15px;
+  color: var(--main-color1);
+}
+
+
+/* separator */
+.breadcrumb-separator {
+  margin: 0 0.4rem;
+  opacity: 0.7;
+}
+
+/* aktiv side */
+.breadcrumb-current {
+  font-weight: 700; /* 👈 Kontakt er lidt tungere */
+}
+
+
+
+.breadcrumb-bar a {
+  color: var(--main-color1);
+  text-decoration: none;
+}
+
+.breadcrumb-bar a:hover {
+  text-decoration: underline;
+}
+
+
+.kontakt-title {
+  font-family: var(--font-heading); /* Inria Serif */
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: none; /* 👈 ekstremt vigtigt */
+  margin: 0;
+  color: #000;
+}
+
+
+.kontakt-hero-title {
   text-align: center;
-  margin-bottom: 1.5rem;
+  font-family: var(--font-heading);
+ margin: 1rem 0 1.5rem;
 }
 
+
+.kontakt-billede {
+  position: relative;              /* 👈 GØR OVERLAY MULIGT */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
 .kontakt-billede img {
   width: 100%;
-  border-radius: 6px;
-  margin-bottom: 1.5rem;
+  height: 40vh;
+  max-height: 420px;
+  object-fit: cover;
+  display: block;
 }
 
 .kontakt-intro {
+font-size: 30px;   /* 👈 samme som kontakt-label */
+  line-height: 1.3;
   text-align: center;
-  font-size: 15px;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
+  margin-top: 40px;
+  font-weight: 700;
 }
 
 /* INFO BLOK */
@@ -1129,23 +1198,26 @@ padding: 11.5rem 0 2rem 1.5rem;
 }
 
 .kontakt-info {
-  text-align: center;
+ display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem; /* 👈 DEN VIGTIGSTE */
 }
 
 .kontakt-info img {
   width: 34px;
-margin: 0 auto 0.75rem;
+margin: 0.15rem 0 0;
 }
 
 .kontakt-info h3 {
   font-family: var(--font-heading);
   font-size: 20px;
-  margin-bottom: 0.25rem;
 }
 
 .kontakt-info p {
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.4;
+  margin: 0;
 }
 
 /* FORM */
@@ -1200,25 +1272,35 @@ margin: 0 auto 0.75rem;
 
 /* Papir-look */
 .kontakt-papir {
-  background-image: url("../img/papir-gul-2.png");
-    background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 100%; /* 👈 strækker papiret */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 
-  padding: 3.5rem 2rem;      /* 👈 mere luft = længere papir */
+  background-image: url("../img/papir-gul-2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4rem);
   margin-bottom: 2.5rem;
   text-align: center;
-
-  max-width: 520px;          /* matcher mobil-look */
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.kontakt-papir p {
+
+.kontakt-papir-titel {
   font-family: var(--font-script); /* Braisetto */
-  font-size: 30px;                 /* 👈 større */
-  line-height: 1.4;
+  font-size: clamp(32px, 5vw, 48px);
+  font-style: italic;
+  font-weight: 700;               /* 👈 FED */
+  line-height: 1.3;
   color: var(--main-text-color);
+}
+
+
+.kontakt-papir p {
+font-family: var(--font-script);
+  font-size: clamp(24px, 4vw, 32px);
+  line-height: 1.35;
 }
 
 /* Kort */
@@ -1256,6 +1338,21 @@ margin: 0 auto 0.75rem;
   transform: scale(1.1);
 }
 
+
+.kontakt-kort,
+.kontakt-social {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+
+.kontakt-kort iframe {
+  width: 100%;
+  height: clamp(260px, 35vw, 420px);
+  border: none;
+  display: block;
+}
 /* =====================
    DESKTOP
 ===================== */
@@ -1274,7 +1371,10 @@ margin: 0 auto 0.75rem;
 }
 
 
-
+a:focus-visible {
+  outline: 3px solid var(--main-color2);
+  outline-offset: 4px;
+}
 
 
 @media (max-width: 768px) {

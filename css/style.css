@@ -617,7 +617,7 @@ padding: 11.5rem 0 2rem 1.5rem;
   position: relative;
   z-index: 2;                    /* Ligger over videoen */
   height: 100%;
-  padding: 1rem;                 /* Luft omkring teksten */
+  margin-top: 0.2rem;
   text-align: center;
 }
 
@@ -633,6 +633,7 @@ padding: 11.5rem 0 2rem 1.5rem;
 .vaerdi img {
   opacity: 0.8;                  /* Gør ikonerne lidt blødere */
   margin-bottom: 0.5rem;
+  max-width: 80px;
 }
 
 /* Wrapper for hver værdi */
@@ -678,7 +679,7 @@ padding: 11.5rem 0 2rem 1.5rem;
 /* Billeder i galleriet */
 .vaerdier-billeder img {
   width: 100%;
-  height: 170px;
+  height: 150px;
   object-fit: cover;             /* Flot beskæring af billeder */
 }
 

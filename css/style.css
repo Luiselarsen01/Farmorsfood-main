@@ -1168,7 +1168,7 @@ font-size: 32px;   /* 👈 samme som kontakt-label */
    display: flex;
   flex-direction: column;
   gap: 1.1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 
 .kontakt-info {
@@ -1183,6 +1183,7 @@ font-size: 32px;   /* 👈 samme som kontakt-label */
   width: 48px;
 margin: 0.15rem 0 0;
 margin-top: 0.5rem;
+margin-bottom: 2.5rem;
 
 }
 .kontakt-info h2 {
@@ -1342,13 +1343,25 @@ font-family: var(--font-script);
 
 @media (min-width: 900px) {
 
-  .kontakt-side {
-    max-width: 900px;
-    margin: 0 auto;
+   .kontakt-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4rem;
   }
 
   .kontakt-info-blok {
-    grid-template-columns: repeat(4, 1fr);
+    display: grid; 
+    gap: 2rem;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    width: 45%
+  }
+
+  .kontakt-formular {
+    margin: 0;
+    width: 400rem;
   }
 
 }

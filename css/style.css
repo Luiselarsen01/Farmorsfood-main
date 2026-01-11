@@ -617,7 +617,7 @@ padding: 11.5rem 0 2rem 1.5rem;
   position: relative;
   z-index: 2;                    /* Ligger over videoen */
   height: 100%;
-  margin-top: 0.8rem;
+  margin-top: 1.8rem;
   text-align: center;
 }
 
@@ -625,7 +625,6 @@ padding: 11.5rem 0 2rem 1.5rem;
 .vaerdier-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 kolonner */
-  gap: 2rem;                     /* Afstand mellem værdier */
   margin: 1.8rem 0;
 }
 
@@ -633,7 +632,7 @@ padding: 11.5rem 0 2rem 1.5rem;
 .vaerdi img {
   opacity: 0.8;                  /* Gør ikonerne lidt blødere */
   margin-bottom: 0.5rem;
-  max-width: 80px;
+  max-width: 50px;
 }
 
 /* Wrapper for hver værdi */
@@ -1342,6 +1341,7 @@ font-family: var(--font-script);
    DESKTOP
 ===================== */
 
+
 @media (min-width: 900px) {
 
    .kontakt-wrapper {
@@ -1350,6 +1350,10 @@ font-family: var(--font-script);
     align-items: flex-start;
     justify-content: center;
     gap: 4rem;
+  }
+
+  .vaerdi img {
+  max-width: 100px;
   }
 
   .kontakt-info-blok {

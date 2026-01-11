@@ -43,30 +43,32 @@
 }
 
 body {
-  font-family: var(--font-body);
-  font-size: var(--p-size);
-  line-height: var(--p-line);
-  color: var(--main-text-color);
-  background-color: var(--main-bg);
+  font-family: var(--font-body);      /* Standard font */
+  font-size: var(--p-size);           /* Standard tekststørrelse */
+  line-height: var(--p-line);         /* Læsevenlig linjeafstand */
+  color: var(--main-text-color);      /* Tekstfarve */
+  background-color: var(--main-bg);   /* Sidebaggrund */
 }
 
 
 
-/* Overskrifter */
+/* H1 – Primær overskrift (hero / sidetitler) */
 h1 {
   font-family: var(--font-heading);
   font-size: var(--h1-size);
   line-height: var(--h1-line);
-  font-weight: 400;
+  font-weight: 400; /* Ikke for tung */
 }
 
+/* H2 – Sektionstitler */
 h2 {
   font-family: var(--font-heading);
   font-size: var(--h2-size);
   line-height: var(--h2-line);
-  font-weight: 700;
+  font-weight: 600; /* Lidt mere vægt */
 }
 
+/* H3 – Underoverskrifter */
 h3 {
   font-family: var(--font-heading);
   font-size: var(--h3-size);
@@ -74,14 +76,19 @@ h3 {
   font-weight: 400;
 }
 
-/* Brødtekst */
+/* =========================================
+   BRØDTEKST
+========================================= */
 p {
   font-family: var(--font-body);
   font-size: var(--p-size);
   line-height: var(--p-line);
 }
 
-/* Kursiv / script-overskrift */
+/* =========================================
+   SCRIPT-OVERSKRIFT
+   Bruges til dekorative overskrifter
+========================================= */
 .h3-script {
   font-family: var(--font-script);
   font-style: italic;
@@ -96,16 +103,19 @@ p {
 ========================================= */
 
 
+/* =========================================
+   BILLEDER
+   Sørger for at billeder aldrig flyder ud
+========================================= */
 img {
-  max-width: 100%;
-  height: auto;
+  max-width: 100%; /* Billedet må aldrig være større end container */
+  height: auto;    /* Bevarer proportioner */
 }
 
 /* =========================================
-   TILGÆNGELIGHED
-   Synlig fokus-ramme ved tastatur-navigation
+   TILGÆNGELIGHED (ACCESSIBILITY)
+   Synlig fokus ved tastaturnavigation
 ========================================= */
-
 a:focus-visible,
 button:focus-visible {
   outline: 3px solid var(--main-color2);
@@ -115,38 +125,38 @@ button:focus-visible {
 
 /* =========================================
    HEADER
-   Sticky top-header med logo + ikoner
+   Sticky top-header med logo og ikoner
 ========================================= */
 .header {
-  background-color: var(--main-color1);
-  position: sticky;      /* Bliver siddende øverst */
+  background-color: var(--main-color1); /* Rød baggrund */
+  position: sticky;                     /* Bliver siddende øverst */
   top: 0;
-  z-index: 1000;
+  z-index: 1000;                        /* Ligger over indhold */
   box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
+/* Flex-container i headeren */
 .header-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.25rem 1rem;
+  padding: 0.8rem 1rem;
   position: relative;
 }
 
-/* Titel i midten (kun visuelt) */
+/* Titel placeret visuelt i midten */
 .header-title {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-
   font-family: var(--font-heading);
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: 0.08em;
   color: white;
   white-space: nowrap;
-
-  pointer-events: none;
+  pointer-events: none; /* Kan ikke klikkes */
 }
+
 
 
 /* =========================================
@@ -155,42 +165,43 @@ button:focus-visible {
 .header-icons {
   display: flex;
   align-items: center;
-  gap: 1rem;
- z-index: 3; }
-
+  gap: 0.1rem;
+  z-index: 3;
+}
 
 .header-icons button {
   background: none;
   border: none;
   color: white;
-  font-size: 20px;
+  font-size: 40px;
+  line-height: 1;
   cursor: pointer;
-
-  width: 44px;         
-  height: 44px;
+  width: 40px;         
+  height: 40px;
   border-radius: 50%;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   transition:
     background-color 0.2s ease,
     transform 0.15s ease;
 }
 
-
+/* Hover og fokus-effekt */
 .header-icons button:hover,
 .header-icons button:focus-visible {
   background-color: rgba(255,255,255,0.25);
 }
 
+/* Klik-feedback */
 .header-icons button:active {
   background-color: rgba(255,255,255,0.35);
   transform: scale(0.92);
 } 
 
-
+/* =========================================
+   INDKØBSKURV (SVG-IKON)
+========================================= */
 
 /* Kurv-knap */
 .kurv-btn {
@@ -238,13 +249,13 @@ button:focus-visible {
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1.75rem;
   text-decoration: none;
 }
 
 .logo img {
 width: auto;
-  height: 43px;
+  height: 53px;            /* Fast logo-højde */
 }
 
 .logo span {
@@ -378,16 +389,16 @@ padding: 11.5rem 0 2rem 1.5rem;
 
 
 /* =========================================
-   BANNER-SEKTION
-   Øverste visuelle sektion på siden
+   BANNER / HERO-SEKTION
 ========================================= */
 .banner {
   position: relative;
   width: 100%;
-  height: clamp(520px, 40vw, 650px); /* 👈 ÉN samlet højde */
-  overflow: hidden;
+  height: clamp(300px, 35vw, 600px); /* Responsiv højde */
+  overflow: hidden;                 /* Skjuler overskydende billede */
 }
-/* Grid */
+
+/* Grid med tre billeder */
 .banner-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1109,16 +1120,16 @@ padding: 11.5rem 0 2rem 1.5rem;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  border-bottom: 10px solid var(--main-color1);
-  margin-top: -20px;
+  border-bottom: 5px solid var(--main-color1);
+  margin-top: -30px;
 }
 
 
 .breadcrumb-indhold {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0rem 1rem 0.55rem; /* 👈 mindre top/bund */
-  font-family: var(--font-heading);
+   padding: 0rem 1rem 0.2rem;
+   font-family: var(--font-heading);
   font-size: 15px;
   color: var(--main-color1);
 }
@@ -1151,18 +1162,15 @@ padding: 11.5rem 0 2rem 1.5rem;
   font-family: var(--font-heading); /* Inria Serif */
   font-size: clamp(40px, 6vw, 72px);
   font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: 0.02em;
-  text-transform: none; /* 👈 ekstremt vigtigt */
-  margin: 0;
-  color: #000;
+   margin: 0;
 }
 
 
 .kontakt-hero-title {
   text-align: center;
   font-family: var(--font-heading);
- margin: 1rem 0 1.5rem;
+ margin: 0.5rem 0 1rem;
+ font-weight: 500;
 }
 
 
@@ -1174,26 +1182,26 @@ padding: 11.5rem 0 2rem 1.5rem;
 }
 .kontakt-billede img {
   width: 100%;
-  height: 40vh;
-  max-height: 420px;
+  height: 28vh;
+  max-height: 340px;
   object-fit: cover;
   display: block;
 }
 
 .kontakt-intro {
-font-size: 30px;   /* 👈 samme som kontakt-label */
+font-size: 32px;   /* 👈 samme som kontakt-label */
   line-height: 1.3;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3.4rem;
   margin-top: 40px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 /* INFO BLOK */
 .kontakt-info-blok {
    display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 1.1rem;
   margin-bottom: 3rem;
 }
 
@@ -1202,13 +1210,20 @@ font-size: 30px;   /* 👈 samme som kontakt-label */
   flex-direction: column;
   align-items: center;
   gap: 0.2rem; /* 👈 DEN VIGTIGSTE */
+
 }
 
 .kontakt-info img {
-  width: 34px;
+  width: 48px;
 margin: 0.15rem 0 0;
-}
+margin-top: 0.5rem;
 
+}
+.kontakt-info h2 {
+  font-size: 30px;
+  margin-top: 0.25rem;
+  font-weight: 400;
+} 
 .kontakt-info h3 {
   font-family: var(--font-heading);
   font-size: 20px;
@@ -1223,10 +1238,10 @@ margin: 0.15rem 0 0;
 /* FORM */
 .kontakt-formular {
   background-color: #d8d4c8;
-  padding: 2rem 1.5rem;
-  border-radius: 14px;
+  padding: 1.5rem 1.25rem;
+  border-radius: 8px;
   max-width: 420px;
-  margin: 2.5rem auto 0;
+  margin: 1rem auto 0;
 }
 
 .kontakt-formular h2 {
@@ -1249,15 +1264,16 @@ margin: 0.15rem 0 0;
 
 .kontakt-formular input,
 .kontakt-formular textarea {
-   padding: 0.8rem;
+   padding: 0.6rem;
   border-radius: 10px;
   border: none;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .kontakt-formular button {
   margin: 1rem auto 0;
   display: block;
+  margin-top: 0.75rem;
 }
 
 
@@ -1266,8 +1282,9 @@ margin: 0.15rem 0 0;
 ===================== */
 
 .kontakt-ekstra {
-  padding: 3rem 1rem 2rem;
+  padding: 0rem 1rem 2rem;
   background-color: var(--main-bg);
+  padding-bottom: 5rem;
 }
 
 /* Papir-look */
@@ -1281,7 +1298,7 @@ margin: 0.15rem 0 0;
   background-position: center;
   background-size: 100% 100%;
 
-  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 4rem);
+  padding: 2.5rem 1.5rem;
   margin-bottom: 2.5rem;
   text-align: center;
 }
@@ -1289,17 +1306,17 @@ margin: 0.15rem 0 0;
 
 .kontakt-papir-titel {
   font-family: var(--font-script); /* Braisetto */
-  font-size: clamp(32px, 5vw, 48px);
+  font-size: clamp(36px, 6vw, 54px);
   font-style: italic;
-  font-weight: 700;               /* 👈 FED */
-  line-height: 1.3;
+  font-weight: 800;               /* 👈 FED */
+  line-height: 2rem;
   color: var(--main-text-color);
 }
 
 
 .kontakt-papir p {
 font-family: var(--font-script);
-  font-size: clamp(24px, 4vw, 32px);
+  font-size: 32px;
   line-height: 1.35;
 }
 
@@ -1309,7 +1326,7 @@ font-family: var(--font-script);
   height: 260px;
   border: none;
   border-radius: 6px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Sociale medier */
@@ -1349,7 +1366,7 @@ font-family: var(--font-script);
 
 .kontakt-kort iframe {
   width: 100%;
-  height: clamp(260px, 35vw, 420px);
+  height: clamp(200px, 28vw, 300px);
   border: none;
   display: block;
 }
@@ -1368,6 +1385,12 @@ font-family: var(--font-script);
     grid-template-columns: repeat(4, 1fr);
   }
 
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 20px;   /* lidt mindre */
+  }
 }
 
 

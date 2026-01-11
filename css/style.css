@@ -806,23 +806,28 @@ padding: 11.5rem 0 2rem 1.5rem;
   width: 80px;
 }
 
+
 /* Indhold */
 .historie-indhold {
   max-width: 1000px;
   margin: 0 auto;
   align-items: center;
-    background-image: url("../img/dame-læser.jpg");
+  background-image: url("../img/dame-læser.jpg");
 }
 
 .historie-tekst {
-  text-align: left;
+  display: flex;
   background-color: var(--main-bg);
-  padding: 2rem 1.5rem;
-  left: 100px;
+  align-items: center;
+}
+
+
+.historie-tekst p {
+    text-align: left;       /* teksten forbliver venstrestillet */
 }
 
 .historie-tekst .cta {
-  margin-top: 2rem;
+    margin-top: 2rem;
 } 
 
 /* Billede */
@@ -1359,7 +1364,7 @@ font-family: var(--font-script);
     width: 100%;
     max-width: none;
     padding: 0.2rem 0.2rem;
-    
+
    
   }
 

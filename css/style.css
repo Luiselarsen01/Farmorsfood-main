@@ -697,30 +697,33 @@ padding: 11.5rem 0 2rem 1.5rem;
    Papir-baggrund med trin
 ========================================= */
 .proces {
-  padding: 2.5rem;          /* Luft omkring sektionen */
+  padding: 1rem;          /* Luft omkring sektionen */
 }
 
 /* Papir-baggrund */
 .proces-paper {
-  max-width: 1500px;
+  width: 100%;
+  max-width: none;
   margin: 0 auto;                /* Centrerer papiret */
   background-image: url("../img/papir-gul-2.png");
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-  padding: 7rem 3rem 7.5rem; /* 👈 mere højde + mere papir */
+  padding: 8rem 1.5rem;/* 👈 mere højde + mere papir */
   background-size: cover;     /* 👈 papiret må gerne vokse */
-  min-height: 520px;
+  min-height: 600px;
   display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  
 }
 
 /* Grid med proces-trin */
 .proces-inner {
-  width: 100%;
-  max-width: 880px;
+  max-width: 1400px;
   margin: 0 auto;                /* Centrerer indholdet i papiret */
   display: grid;
-  gap: 3rem 2rem;
+  gap: 2rem;
   grid-template-columns: repeat(2, 1fr);
   margin-top: 2.5rem; /* 👈 skubber hele indholdet ned */
 
@@ -731,9 +734,9 @@ padding: 11.5rem 0 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   text-align: center;
-  min-height: 260px; /* 👈 ens højde som på billedet */
+  min-height: 2px; /* 👈 ens højde som på billedet */
+  padding: 0.5rem;
 }
 
 
@@ -754,7 +757,7 @@ padding: 11.5rem 0 2rem 1.5rem;
   font-family: var(--font-script);
   font-style: italic;
   font-weight: 300;
-  font-size: 30px;
+  font-size: 45px;
   color: var(--main-color2);
   text-align: center;
   margin-bottom: 0.6rem;
@@ -774,9 +777,14 @@ padding: 11.5rem 0 2rem 1.5rem;
 
 /* Ikon/billede i hvert trin */
 .proces-item img {
-  width: 280px;
-  margin: 1.25rem auto 0;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  min-width: 150px;
+  margin: 1rem auto 0;
   display: block;
+  transform: scale(1.6);
+  padding-bottom: 50px;
 }
 /* =========================================
    HISTORIE – TITEL + DEKORATION
@@ -1333,17 +1341,45 @@ font-family: var(--font-script);
 ===================== */
 
 
-@media (min-width: 900px) {
+    
+@media (min-width: 768px) {
 
-   .kontakt-wrapper {
+   /* =========================================
+   Forside - proces sektion
+    ========================================= */
+    .proces-paper {
+    width: 100%;
+    max-width: none;
+    padding: 0.2rem 0.2rem;
+    
+   
+  }
+
+  .proces-inner {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+
+  .proces-item img {
+    transform: scale(1.2); 
+    max-width: 280px;     
+  }
+  .proces-titel {
+    font-size: 55px;
+  }
+
+
+
+   /* =========================================
+   Kontakt form
+    ========================================= */
+
+  .kontakt-wrapper {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    gap: 4rem;
-  }
-
-@media (min-width: 768px) {
+    gap: 4rem;}
 
      /* =========================================
    Overskrifter
@@ -1476,40 +1512,7 @@ a:focus-visible {
   }
 }
 
-@media (max-width: 1023px) {
-  .proces-inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-
-  
-}
-/* Desktop */
-@media (min-width: 1024px) {
-  .proces-inner {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Tablet */
-@media (max-width: 1023px) {
-  .proces-inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobil */
-@media (max-width: 520px) {
-  .proces-inner {
-    grid-template-columns: 1fr;
-  }
-}
 
 
 

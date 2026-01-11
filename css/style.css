@@ -1394,6 +1394,14 @@ font-family: var(--font-script);
     box-shadow: 0 6px 14px rgba(0,0,0,0.15);
   }
 
+   /* =========================================
+   Kontakt billede
+    ========================================= */
+  .kontakt-billede img{
+    height: 70vh;
+    max-height: 500px;
+  }
+
 }
 
   .vaerdi img {

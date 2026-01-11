@@ -1345,6 +1345,18 @@ font-family: var(--font-script);
 
 @media (min-width: 768px) {
 
+     /* =========================================
+   Overskrifter
+    ========================================= */
+    h1{
+      font-size: 60px;
+      line-height: 70px;
+    }
+
+    h2{
+      font-size: 40px;
+    }
+
     /* =========================================
    HISTORIE – TITEL + DEKORATION
     ========================================= */

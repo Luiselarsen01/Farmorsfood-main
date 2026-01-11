@@ -598,7 +598,7 @@ padding: 11.5rem 0 2rem 1.5rem;
 ========================================= */
 .vaerdier-video-wrapper {
   position: relative;            /* Gør det muligt at placere indhold ovenpå video */
-  height: 300px;                 /* Styrer højden på video-sektionen */
+  min-height: 300px;                 /* Styrer højden på video-sektionen */
   overflow: hidden;              /* Skjuler video der går udenfor rammen */
   color: var(--main-bg);         /* Tekstfarve ovenpå video */;}
 
@@ -617,7 +617,7 @@ padding: 11.5rem 0 2rem 1.5rem;
   position: relative;
   z-index: 2;                    /* Ligger over videoen */
   height: 100%;
-  margin-top: 0.2rem;
+  margin-top: 0.8rem;
   text-align: center;
 }
 
@@ -626,7 +626,7 @@ padding: 11.5rem 0 2rem 1.5rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 kolonner */
   gap: 2rem;                     /* Afstand mellem værdier */
-  margin: 2rem 0;
+  margin: 1.8rem 0;
 }
 
 /* Ikoner i værdier */

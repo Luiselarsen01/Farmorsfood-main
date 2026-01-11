@@ -1408,7 +1408,7 @@ font-family: var(--font-script);
    Footer
     ========================================= */
   .footer-indhold {
-    max-width: 1000px;          /* 👈 bredere footer */
+    max-width: 3000px;          /* 👈 bredere footer */
   }
   .footer-logo-billede img {
   width: 200px;   /* matcher billedet */

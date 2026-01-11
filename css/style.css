@@ -87,6 +87,7 @@ p {
   font-family: var(--font-body);
   font-size: var(--p-size);
   line-height: var(--p-line);
+  padding-bottom: 20px;
 }
 
 /* =========================================
@@ -793,10 +794,6 @@ padding: 11.5rem 0 2rem 1.5rem;
   text-align: center;
 }
 
-
-
-
-
 .historie-deko {
   width: 80px;
 }
@@ -805,9 +802,6 @@ padding: 11.5rem 0 2rem 1.5rem;
 .historie-indhold {
   max-width: 1000px;
   margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   align-items: center;
     background-image: url("../img/dame-læser.jpg");
 }
@@ -1059,12 +1053,6 @@ padding: 11.5rem 0 2rem 1.5rem;
   margin-bottom: 0.75rem;
   color: white;
 }
-
-
-
-
-
-
 
 
 /* =====================
@@ -1337,6 +1325,7 @@ font-family: var(--font-script);
   border: none;
   display: block;
 }
+
 /* =====================
    DESKTOP
 ===================== */
@@ -1351,6 +1340,61 @@ font-family: var(--font-script);
     justify-content: center;
     gap: 4rem;
   }
+
+@media (min-width: 768px) {
+
+    /* =========================================
+   HISTORIE – TITEL + DEKORATION
+    ========================================= */
+  .historie {
+    padding: 5rem 1.5rem;          /* Luft omkring historien */
+  }
+
+  .historie-header {
+    display: flex;                 /* Lægger dekoration + titel på række */
+    align-items: center;           /* Centrerer lodret */
+    justify-content: center;       /* Centrerer vandret */
+    gap: 2rem;                     /* Luft mellem elementerne */
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .historie-deko {
+    width: 80px;
+  }
+
+  /* Indhold */
+  .historie-indhold {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+      background-image: url("../img/dame-læser.jpg");
+  }
+
+  .historie-tekst {
+    text-align: left;
+    background-color: var(--main-bg);
+    padding: 2rem 1.5rem;
+    left: 100px;
+  }
+
+  .historie-tekst .cta {
+    margin-top: 2rem;
+  } 
+
+  /* Billede */
+  .historie-billede img {
+    width: 100%;
+    max-width: 420px;
+    display: block;
+    padding: 3rem 1.7rem;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  }
+
+}
 
   .vaerdi img {
   max-width: 100px;
@@ -1472,5 +1516,6 @@ a:focus-visible {
     padding: 0 1rem;          /* 👈 luft i siderne */
     letter-spacing: 0.05em;   /* 👈 mindre afstand mellem bogstaver */
   }
+
 
 }

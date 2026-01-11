@@ -42,6 +42,8 @@
 
 }
 
+
+
 body {
   font-family: var(--font-body);      /* Standard font */
   font-size: var(--p-size);           /* Standard tekststørrelse */
@@ -57,7 +59,8 @@ h1 {
   font-family: var(--font-heading);
   font-size: var(--h1-size);
   line-height: var(--h1-line);
-  font-weight: 400; /* Ikke for tung */
+  font-weight: 400;
+
 }
 
 /* H2 – Sektionstitler */
@@ -65,7 +68,8 @@ h2 {
   font-family: var(--font-heading);
   font-size: var(--h2-size);
   line-height: var(--h2-line);
-  font-weight: 600; /* Lidt mere vægt */
+  font-weight: 500;
+
 }
 
 /* H3 – Underoverskrifter */
@@ -97,11 +101,6 @@ p {
   letter-spacing: 0.04em;
   line-height: 1.2;
 }
-/* =========================================
-   BILLEDER
-   Sørger for at billeder aldrig overflow’er
-========================================= */
-
 
 /* =========================================
    BILLEDER
@@ -548,15 +547,15 @@ padding: 11.5rem 0 2rem 1.5rem;
 
 /* Individuelle produktbilleder */
 .produkt1 {
-  background-image: url(../img/mad-krukker.jpg);
+  background-image: url(../img/pølser2.png);
 }
 
 .produkt2 {
-  background-image: url(../img/pølser-4.png);
+  background-image: url(../img/krukker1.jpg);
 }
 
 .produkt3 {
-  background-image: url(../img/mad-6.jpg);
+  background-image: url(../img/pølse1.png);
 }
 
 /* =========================================
@@ -632,7 +631,6 @@ padding: 11.5rem 0 2rem 1.5rem;
 
 /* Ikoner i værdier */
 .vaerdi img {
-  width: 60px;                   /* Ens ikonstørrelse */
   opacity: 0.8;                  /* Gør ikonerne lidt blødere */
   margin-bottom: 0.5rem;
 }
@@ -712,6 +710,7 @@ padding: 11.5rem 0 2rem 1.5rem;
   padding: 7rem 3rem 7.5rem; /* 👈 mere højde + mere papir */
   background-size: cover;     /* 👈 papiret må gerne vokse */
   min-height: 520px;
+  display: flex;
 }
 
 /* Grid med proces-trin */
@@ -719,10 +718,9 @@ padding: 11.5rem 0 2rem 1.5rem;
   width: 100%;
   max-width: 880px;
   margin: 0 auto;                /* Centrerer indholdet i papiret */
-
   display: grid;
   gap: 3rem 2rem;
-   grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   margin-top: 2.5rem; /* 👈 skubber hele indholdet ned */
 
 }
@@ -775,7 +773,7 @@ padding: 11.5rem 0 2rem 1.5rem;
 
 /* Ikon/billede i hvert trin */
 .proces-item img {
-  width: 120px;
+  width: 280px;
   margin: 1.25rem auto 0;
   display: block;
 }
@@ -869,16 +867,13 @@ padding: 11.5rem 0 2rem 1.5rem;
   left: -18px;
   width: 90px;
   height: 28px;
-  background-image: url("../img/tape.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  transform: rotate(-12deg);
+
+ 
 }
 
 .events-hovedbillede img {
   width: 100%;
   display: block;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
 /* Tekst */
@@ -1065,39 +1060,10 @@ padding: 11.5rem 0 2rem 1.5rem;
   color: white;
 }
 
-@media (max-width: 768px) {
-
-.header-bar {
-  position: relative;         
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 72px;
-  padding: 0 1rem;
-}
-
-
-  .logo span {
-    position: static;          /* 👈 fjerner overlap */
-    transform: none;
-    margin-left: 0.1rem;       /* 👈 luft mellem logo og tekst */
-    max-width: none;
-  }
-
-  .logo {
-    gap: 0.1rem;
-  }
 
 
 
-  .banner-overlay h1 {
-    font-size: 1.6rem;        /* 👈 mindre tekst */
-    line-height: 1.3;
-    padding: 0 1rem;          /* 👈 luft i siderne */
-    letter-spacing: 0.05em;   /* 👈 mindre afstand mellem bogstaver */
-  }
 
-}
 
 
 
@@ -1170,7 +1136,7 @@ padding: 11.5rem 0 2rem 1.5rem;
   text-align: center;
   font-family: var(--font-heading);
  margin: 0.5rem 0 1rem;
- font-weight: 500;
+
 }
 
 
@@ -1453,4 +1419,40 @@ a:focus-visible {
     aspect-ratio: 16 / 9;
     min-height: clamp(420px, 35vw, 600px);
   }
+}
+
+
+
+@media (max-width: 768px) {
+
+.header-bar {
+  position: relative;         
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  padding: 0 1rem;
+}
+
+
+  .logo span {
+    position: static;          /* 👈 fjerner overlap */
+    transform: none;
+    margin-left: 0.1rem;       /* 👈 luft mellem logo og tekst */
+    max-width: none;
+  }
+
+  .logo {
+    gap: 0.1rem;
+  }
+
+
+
+  .banner-overlay h1 {
+    font-size: 1.6rem;        /* 👈 mindre tekst */
+    line-height: 1.3;
+    padding: 0 1rem;          /* 👈 luft i siderne */
+    letter-spacing: 0.05em;   /* 👈 mindre afstand mellem bogstaver */
+  }
+
 }

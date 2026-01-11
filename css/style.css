@@ -1404,6 +1404,14 @@ font-family: var(--font-script);
     max-height: 500px;
   }
 
+   /* =========================================
+   Footer
+    ========================================= */
+  .footer-indhold {
+    max-width: 1000px;          /* 👈 bredere footer */
+  }
+  .footer-logo-billede img {
+  width: 200px;   /* matcher billedet */
 }
 
   .vaerdi img {
